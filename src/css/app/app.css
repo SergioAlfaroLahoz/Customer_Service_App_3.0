@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f2f2f2;
+  font-family: "Roboto", Arial;
+  border-top: 30px solid #303f9f;
+}
+
+.app-holder {
+  background: #41ff2f;
+  margin: auto;
+  width: 100%;
+}
+/*# sourceMappingURL=app.css.map */

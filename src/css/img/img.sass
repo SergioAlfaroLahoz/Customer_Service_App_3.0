@@ -1,0 +1,25 @@
+@import ../_variables
+
+.img-holder
+    width: 60%
+    padding: 50px 100px
+    background: $white
+    margin: auto
+    float: right
+
+.frame
+    width: 100%
+    padding: 10px
+    background: $primary
+    box-shadow: 0px 0px 3px grey
+    
+.img
+    width: 100%
+    background: #fff
+
+@supports(object-fit: cover)
+    .img
+      height: 100%
+      object-fit: cover
+      object-position: center center
+    

@@ -1,0 +1,31 @@
+.img-holder {
+  width: 60%;
+  padding: 50px 100px;
+  background: #f2f2f2;
+  margin: auto;
+  float: right;
+}
+
+.frame {
+  width: 100%;
+  padding: 10px;
+  background: #303f9f;
+  -webkit-box-shadow: 0px 0px 3px grey;
+          box-shadow: 0px 0px 3px grey;
+}
+
+.img {
+  width: 100%;
+  background: #fff;
+}
+
+@supports ((-o-object-fit: cover) or (object-fit: cover)) {
+  .img {
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center center;
+       object-position: center center;
+  }
+}
+/*# sourceMappingURL=img.css.map */

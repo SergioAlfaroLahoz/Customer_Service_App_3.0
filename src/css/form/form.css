@@ -1,44 +1,32 @@
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-body {
+.form-holder {
+  width: 40%;
+  padding: 50px 70px;
+  margin: auto;
   background: #f2f2f2;
-  font-family: "Roboto", Arial;
-  border-top: 30px solid #303f9f;
+  margin: auto;
+  float: left;
 }
 
 .wrap {
-  width: 90%;
-  max-width: 500px;
-  padding: 40px;
-  margin: auto;
-  background: #ffffff;
-  margin: auto;
+  width: 100%;
+  color: #f2f2f2;
+  padding: 20px;
+  background: #fff;
   -webkit-box-shadow: 0px 0px 3px grey;
           box-shadow: 0px 0px 3px grey;
 }
 
-.form-holder {
-  width: 100%;
-  color: #f2f2f2;
-  padding: 50px;
-}
-
-.form-holder .form {
+.wrap .form {
   width: 100%;
   margin: auto;
 }
 
-.form-holder .form .input-group {
+.wrap .form .input-group {
   position: relative;
   margin-bottom: 32px;
 }
 
-.form-holder .form .input-group input[type="text"], .form-holder .form .input-group input[type="email"], .form-holder .form .input-group input[type="password"] {
+.wrap .form .input-group input[type="text"], .wrap .form .input-group input[type="email"], .wrap .form .input-group input[type="password"] {
   font-size: 16px;
   color: #303f9f;
   width: 100%;
@@ -49,24 +37,24 @@ body {
   border-bottom: 2px solid #bbdefb;
 }
 
-.form-holder .form .input-group input[type="text"]:focus, .form-holder .form .input-group input[type="text"]:active, .form-holder .form .input-group input[type="email"]:focus, .form-holder .form .input-group input[type="email"]:active, .form-holder .form .input-group input[type="password"]:focus, .form-holder .form .input-group input[type="password"]:active {
+.wrap .form .input-group input[type="text"]:focus, .wrap .form .input-group input[type="text"]:active, .wrap .form .input-group input[type="email"]:focus, .wrap .form .input-group input[type="email"]:active, .wrap .form .input-group input[type="password"]:focus, .wrap .form .input-group input[type="password"]:active {
   outline: none;
   border-bottom: 2px solid #303f9f;
 }
 
-.form-holder .form .input-group input[type="text"].error, .form-holder .form .input-group input[type="email"].error, .form-holder .form .input-group input[type="password"].error {
+.wrap .form .input-group input[type="text"].error, .wrap .form .input-group input[type="email"].error, .wrap .form .input-group input[type="password"].error {
   border-bottom: 2px solid #D32F2F;
 }
 
-.form-holder .form .input-group input[type="text"].error + label, .form-holder .form .input-group input[type="email"].error + label, .form-holder .form .input-group input[type="password"].error + label {
+.wrap .form .input-group input[type="text"].error + label, .wrap .form .input-group input[type="email"].error + label, .wrap .form .input-group input[type="password"].error + label {
   color: #D32F2F;
 }
 
-.form-holder .form label {
+.wrap .form label {
   color: #303f9f;
 }
 
-.form-holder .form label.label {
+.wrap .form label.label {
   position: absolute;
   top: 16px;
   left: 0;
@@ -77,14 +65,14 @@ body {
   transition: all .3s ease;
 }
 
-.form-holder .form label.label.active {
+.wrap .form label.label.active {
   top: -12px;
   font-size: 12px;
   line-height: 12px;
   color: #b6b6b6;
 }
 
-.form-holder .form .checkbox label, .form-holder .form .radio label {
+.wrap .form .checkbox label, .wrap .form .radio label {
   display: inline-block;
   cursor: pointer;
   color: #303f9f;
@@ -96,11 +84,11 @@ body {
   transition: all .3s ease;
 }
 
-.form-holder .form .checkbox label:hover, .form-holder .form .radio label:hover {
+.wrap .form .checkbox label:hover, .wrap .form .radio label:hover {
   background: #bbdefb;
 }
 
-.form-holder .form .checkbox label:before, .form-holder .form .radio label:before {
+.wrap .form .checkbox label:before, .wrap .form .radio label:before {
   content: "";
   display: inline-block;
   width: 17px;
@@ -113,52 +101,52 @@ body {
   border: 2px solid #303f9f;
 }
 
-.form-holder .form .error label {
+.wrap .form .error label {
   color: #D32F2F;
 }
 
-.form-holder .form .error label:hover {
+.wrap .form .error label:hover {
   background: rgba(211, 47, 47, 0.2);
 }
 
-.form-holder .form .error label:before {
+.wrap .form .error label:before {
   border: 2px solid #D32F2F;
 }
 
-.form-holder .form .radio input[type="radio"] {
+.wrap .form .radio input[type="radio"] {
   display: none;
 }
 
-.form-holder .form .radio input[type="radio"]:checked + label:before {
+.wrap .form .radio input[type="radio"]:checked + label:before {
   display: none;
 }
 
-.form-holder .form .radio input[type="radio"]:checked + label {
+.wrap .form .radio input[type="radio"]:checked + label {
   padding: 5px 15px;
   background: #303f9f;
   color: #f2f2f2;
   border-radius: 2px;
 }
 
-.form-holder .form .checkbox label:before {
+.wrap .form .checkbox label:before {
   border-radius: 3px;
 }
 
-.form-holder .form .checkbox input[type="checkbox"] {
+.wrap .form .checkbox input[type="checkbox"] {
   display: none;
 }
 
-.form-holder .form .checkbox input[type="checkbox"]:checked + label:before {
+.wrap .form .checkbox input[type="checkbox"]:checked + label:before {
   display: none;
 }
 
-.form-holder .form .checkbox input[type="checkbox"]:checked + label {
+.wrap .form .checkbox input[type="checkbox"]:checked + label {
   padding: 5px 15px;
   background: #303f9f;
   color: #f2f2f2;
 }
 
-.form-holder .form input[type="submit"] {
+.wrap .form input[type="submit"] {
   background: #303f9f;
   border-radius: 1px;
   border: 2px solid #f2f2f2;
@@ -173,11 +161,11 @@ body {
   transition: all .3s ease;
 }
 
-.form-holder .form input[type="submit"]:hover {
+.wrap .form input[type="submit"]:hover {
   background: #1976D2;
 }
 
-.form-holder .form input[type="button"] {
+.wrap .form input[type="button"] {
   background: #303f9f;
   border-radius: 1px;
   border: 2px solid #f2f2f2;
@@ -192,7 +180,7 @@ body {
   transition: all .3s ease;
 }
 
-.form-holder .form input[type="button"]:hover {
+.wrap .form input[type="button"]:hover {
   background: #1976D2;
 }
 /*# sourceMappingURL=form.css.map */
