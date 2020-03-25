@@ -3,9 +3,6 @@ import React, {Component} from 'react';
 import '../css/img/img.css';
 
 //Images
-import SerialNumberLocation from "../img/SerialNumberLocation.png";
-import EmailLocation from '../img/EmailLocation.png';
-
 import images from './Images'
 
 export default class Form extends Component {

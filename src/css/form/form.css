@@ -10,7 +10,7 @@
 .wrap {
   width: 100%;
   color: #f2f2f2;
-  padding: 20px;
+  padding: 35px 20px 10px;
   background: #fff;
   -webkit-box-shadow: 0px 0px 3px grey;
           box-shadow: 0px 0px 3px grey;
@@ -70,6 +70,10 @@
   font-size: 12px;
   line-height: 12px;
   color: #b6b6b6;
+}
+
+.wrap .form label:hover {
+  cursor: text;
 }
 
 .wrap .form .checkbox label, .wrap .form .radio label {
@@ -182,5 +186,9 @@
 
 .wrap .form input[type="button"]:hover {
   background: #1976D2;
+}
+
+.wrap .form p {
+  color: black;
 }
 /*# sourceMappingURL=form.css.map */
