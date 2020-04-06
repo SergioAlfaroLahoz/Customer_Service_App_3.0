@@ -9,11 +9,13 @@ body {
   background: #f2f2f2;
   font-family: "Roboto", Arial;
   border-top: 30px solid #303f9f;
+  height: auto;
 }
 
 .app-holder {
-  background: #41ff2f;
+  background: #f2f2f2;
   margin: auto;
   width: 100%;
+  height: auto;
 }
 /*# sourceMappingURL=app.css.map */

@@ -17,50 +17,13 @@
     .form 
         width: 100%
         margin: auto
-
-        .input-group
-            position: relative
-            margin-bottom: 32px
-
-            input[type="text"], input[type="email"], input[type="password"]
-                $font-family: $font-family
-                font-size: 16px
-                color: $primary
-                width: 100%
-                outline: none
-                padding: 15px
-                background: none
-                border: none
-                border-bottom: $border solid $light-primary
-
-                &:focus, &:active
-                    outline: none
-                    border-bottom: $border solid $primary
-
-                &.error
-                    border-bottom: $border solid $error
-                    + label
-                        color: $error
+        text-align: center
 
         label 
             color: $primary
-            &.label
-                position: absolute
-                top: 16px
-                left: 0
-                font-size: 16px
-                line-height: 16px
-                margin-left: 16px
-                -webkit-transition: all .3s ease
-                -o-transition: all .3s ease
-                transition: all .3s ease
-                &.active
-                    top: -12px
-                    font-size: 12px
-                    line-height: 12px
-                    color: $divider
+
             &:hover
-                cursor: text
+                cursor: default
         
         .checkbox label, .radio label
             display: inline-block
@@ -143,7 +106,8 @@
             cursor: pointer
             display: inline-block
             padding: 15px
-            width: 100%       
+            width: 42%
+            margin: 10px 15px    
             font-family: $font-family
             font-size: 16px
             -webkit-transition: all .3s ease
@@ -153,23 +117,5 @@
                 background: $primary-selected
             
         
-        textarea
-            width: 90%
-            height: 100px
-            padding: 10px
-            margin: auto
-            /*box-sizing: ; para fijar el tamaño de la caja*/
-            resize: vertical
-            max-height: 300px
-            font-family: $font-family
-            font-size: 16px
-            color: $primary
-            width: 100%
-            outline: none
-            padding: 15px
-            background: none
-            border: 2px solid $primary
-        
-        .textAreaLabel
-            text-align: left
-            float: left
+        p 
+            color: black

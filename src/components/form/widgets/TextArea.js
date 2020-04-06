@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import '../../css/form/form.css';
+import '../../../css/form/form.css';
 
-export default class TextLabel extends Component {
+export default class TextArea extends Component {
 
     constructor(args){
         super(args);
@@ -14,9 +14,10 @@ export default class TextLabel extends Component {
         this.state = {
             input: '' 
         }
-        this.classes = {
-            label: 'label'
-        }
+    }
+
+    addLog(){
+        this.props.addLog('Additional Comments', this.state.input);
     }
 
     //e.target.name devuelve el 'name' de el widget (label)
@@ -27,30 +28,34 @@ export default class TextLabel extends Component {
     }
 
     onFocus(e){
-        this.classes.label = 'label active'
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
     onBlur(e){
-        if (this.state.input===''){
-            this.classes.label = 'label'
-        }
         this.setState({
             [e.target.name]: e.target.value
         })
+        this.addLog();
     }
     
     setFocus() {
         this.textInput.current.focus();
     }
 
+    clearLabel() {
+        this.setState({
+            input: ''
+        })
+    }
+
     render(){
         return(
-            <div class="input-group">
-                <input type="text" ref={this.textInput} id="input" name="input" value={this.state.input} onChange={this.onChange} onFocus={this.onFocus} onBlur={this.onBlur}/>
-                <label class={this.classes.label} htmlFor="user" onClick={this.setFocus}>{this.props.text}</label>
+            <div className="input-group">
+                <br/>
+                <label className="textAreaLabel">Additional Comments:</label>
+                <textarea type="text" ref={this.textInput} id="input" name="input" placeholder="Type here additional comments" value={this.state.input} onChange={this.onChange} onFocus={this.onFocus} onBlur={this.onBlur}/>
             </div>
         )
     }

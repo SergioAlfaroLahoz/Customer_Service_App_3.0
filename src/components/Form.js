@@ -2,36 +2,42 @@ import React, {Component} from 'react';
 
 import '../css/form/form.css';
 
-//Components 
-import TextLabel from './form/TextLabel'
-import PasswordLabel from './form/PasswordLabel'
+//Forms
+import Login from "./form/Login";
+import SerialNumber from "./form/SerialNumber";
+import UserInformation from './form/UserInformation';
+import ProblemNotSolved from './form/ProblemNotSolved';
 
 export default class Form extends Component {
 
     constructor(args){
         super(args);
         this.state = {
-            data: ''
+            
         }
     }
 
     render(){
-        return(
-            <div class="form-holder">
-                <div class="wrap">
-                    <form action="" class="form" name="form_register" method="get">
-                        <div>
-                            <TextLabel text={"Username"}/>
+        switch(this.props.window){
+            case 'Login':
+                return(
+                    <Login changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                )
+                    
+            case 'SerialNumber':
+                return(
+                    <SerialNumber changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                )
+    
+            case 'UserInformation':
+                return(
+                    <UserInformation changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                )
 
-                            <PasswordLabel text={"Password"}/>
-
-                            <input type="button" id="btn-submit" value="Login"></input>
-
-                            <p>{JSON.stringify(this.state)}</p>
-                        </div>
-                    </form>
-                </div>
-            </div>           
-        )
+            case 'ProblemNotSolved':
+                return(
+                    <ProblemNotSolved data={this.props.data} addLog={this.props.addLog}/>
+                )
+        }  
     }
 }

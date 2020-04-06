@@ -1,0 +1,66 @@
+.holder {
+  width: 95%;
+  padding: 50px 20px;
+  background: #f2f2f2;
+  margin: auto;
+}
+
+.frame {
+  width: 100%;
+  padding: 10px;
+  margin: auto;
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 3px grey;
+          box-shadow: 0px 0px 3px grey;
+}
+
+.frame h1 {
+  text-align: center;
+}
+
+.frame .images-holder {
+  width: 100%;
+  background: #fff;
+  height: 500px;
+  text-align: center;
+}
+
+.frame .images-holder .button-holder {
+  width: 20%;
+  padding: 20px;
+  background: #fff;
+  float: left;
+}
+
+.frame .images-holder .button-holder .button {
+  background: #303f9f;
+  width: 100%;
+  padding: 5px;
+  border-radius: 7px;
+  max-height: 200px;
+  border: 3px solid black;
+  -webkit-box-shadow: 0px 0px 3px grey;
+          box-shadow: 0px 0px 3px grey;
+}
+
+.frame .images-holder .button-holder .button label {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+}
+
+.frame .images-holder .button-holder .button img {
+  width: auto;
+  height: 100%;
+  max-height: 150px;
+  margin: auto;
+  display: block;
+}
+
+.frame .images-holder .button-holder .button:hover {
+  background: #1976D2;
+  cursor: pointer;
+}
+/*# sourceMappingURL=menu.css.map */

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import '../../css/form/form.css';
+import '../../../css/form/form.css';
 
-export default class PasswordLabel extends Component {
+export default class EmailLabel extends Component {
 
     constructor(args){
         super(args);
@@ -17,6 +17,10 @@ export default class PasswordLabel extends Component {
         this.classes = {
             label: 'label'
         }
+    }
+
+    addLog(){
+        this.props.addLog(this.props.text, this.state.input);
     }
 
     //e.target.name devuelve el 'name' de el widget (label)
@@ -40,6 +44,7 @@ export default class PasswordLabel extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
+        this.addLog();
     }
     
     setFocus() {
@@ -48,9 +53,9 @@ export default class PasswordLabel extends Component {
 
     render(){
         return(
-            <div class="input-group">
-                <input type="password" ref={this.textInput} id="input" name="input" value={this.state.input} onChange={this.onChange} onFocus={this.onFocus} onBlur={this.onBlur}/>
-                <label class={this.classes.label} htmlFor="user" onClick={this.setFocus}>{this.props.text}</label>
+            <div className="input-group">
+                <input type="email" ref={this.textInput} id="input" name="input" value={this.state.input} onChange={this.onChange} onFocus={this.onFocus} onBlur={this.onBlur}/>
+                <label className={this.classes.label} htmlFor={this.textInput} onClick={this.setFocus}>{this.props.text}</label>
             </div>
         )
     }

@@ -13,7 +13,19 @@ export default class PdfGenerate extends Component {
 
         // Example From https://parall.ax/products/jspdf
         var doc = new jsPDF('p', 'pt');
+
+        var line = 40;
+
+        for (var key in this.props.log){
+            var title = key;
+            var description = this.props.log[key];
+            var text = key + ": " + description
+            var splitText = doc.splitTextToSize(text, 520);
+            doc.text(30,line,splitText);
+            line = line + (20*splitText.length);
+        }
         
+        /*
         doc.text(20, 20, 'This is the default font.')
 
         doc.setFont('courier')
@@ -31,6 +43,7 @@ export default class PdfGenerate extends Component {
         doc.setFont('courier')
         doc.setFontType('bolditalic')
         doc.text(20, 60, 'This is courier bolditalic.')
+        */
         
         // Save the Data
         doc.save('Generated.pdf')
@@ -38,7 +51,7 @@ export default class PdfGenerate extends Component {
   
     render(){
       return(
-            <input type="button" id="pdfGenerator" onClick={this.jsPdfGenerator} value="Generate PDF"></input>
+            <input type="button" id="pdfGenerator" onClick={this.jsPdfGenerator} value="Generate report"></input>
         )
     }
   
