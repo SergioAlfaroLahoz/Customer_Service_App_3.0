@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 
-import '../../css/form/form.css';
+import '../css/form/form.css';
 
-import PdfGenerate from '../PdfGenerate';
+import PdfGenerate from './PdfGenerate';
 
 //Components 
-import TextLabel from './widgets/TextLabel';
-import TextArea from './widgets/TextArea';
+import TextLabel from './form/widgets/TextLabel';
+import TextArea from './form/widgets/TextArea';
 
 export default class ProblemNotSolved extends Component {
 

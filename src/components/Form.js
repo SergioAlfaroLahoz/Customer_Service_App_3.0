@@ -6,7 +6,7 @@ import '../css/form/form.css';
 import Login from "./form/Login";
 import SerialNumber from "./form/SerialNumber";
 import UserInformation from './form/UserInformation';
-import ProblemNotSolved from './form/ProblemNotSolved';
+import ProblemNotSolved from './ProblemNotSolved';
 
 export default class Form extends Component {
 
@@ -32,11 +32,6 @@ export default class Form extends Component {
             case 'UserInformation':
                 return(
                     <UserInformation changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
-                )
-
-            case 'ProblemNotSolved':
-                return(
-                    <ProblemNotSolved data={this.props.data} addLog={this.props.addLog}/>
                 )
         }  
     }

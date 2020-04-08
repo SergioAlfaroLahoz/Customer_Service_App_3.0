@@ -11,6 +11,9 @@ import Smells from '../../img/Smells.png';
 import PerfumeResults from '../../img/Perfume.png';
 import Staints from '../../img/Staints.png';
 import ErrorCodeRedYes from '../../img/ErrorCodeRedYes.png';
+import AndroidIOS from '../../img/AndroidIOS.png';
+import NotWorkingSwitch from '../../img/NotWorkingSwitch.png';
+
 
 const images = {
     Login: TheAlchemist,
@@ -27,7 +30,9 @@ const images = {
     Smells: Smells,
     PerfumeResults: PerfumeResults,
     Staints: Staints,
-    ErrorCodeRedYes: ErrorCodeRedYes
+    ErrorCodeRedYes: ErrorCodeRedYes,
+    AndroidIOS: AndroidIOS,
+    NotWorkingSwitch: NotWorkingSwitch
 };
 
 export default images;
