@@ -472,25 +472,25 @@ class App extends Component {
         )
 
       case 'QuestionForm':
-          return(
-            <div className="app-holder">
-                <QForm instruction={this.state.instruction} question={this.state.question} choice1={this.state.choice1} choice2={this.state.choice2} window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
-                <Img window={this.state.window}/>
-            </div>
-          )
+        return(
+          <div className="app-holder">
+              <QForm instruction={this.state.instruction} question={this.state.question} choice1={this.state.choice1} choice2={this.state.choice2} window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
+              <Img window={this.state.window}/>
+          </div>
+        )
 
       case 'ProblemSolved':
-            return(
-              <div className="app-holder">
-                  <ProblemSolved data={this.state.data} addLog={this.addLog}/>
-                  <Img window={this.state.menu}/>
-              </div>
-            )
+        return(
+          <div className="app-holder">
+              <ProblemSolved data={this.state.data} addLog={this.addLog}/>
+              <Img window={this.state.menu}/>
+          </div>
+        )
       
       case 'ProblemNotSolved':
         return(
           <div className="app-holder">
-            <Form window='ProblemNotSolved' data={this.state.data} addLog={this.addLog}/>
+            <ProblemNotSolved window='ProblemNotSolved' data={this.state.data} addLog={this.addLog}/>
             <Img window='ProblemNotSolved'/>
           </div>
         )
