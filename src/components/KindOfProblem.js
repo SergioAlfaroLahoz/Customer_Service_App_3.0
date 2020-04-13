@@ -23,23 +23,23 @@ export default class KindOfProblem extends Component {
                     <br/><br/>
                     <div className="images-holder">
 
-                        <ImageButton name='ErrorCode' image={images.ErrorCode} label="Scent Creator lights error" changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                        <ImageButton name='ErrorCode' image={images.ErrorCode} label="Scent Creator lights error" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
                         
-                        <ImageButton name='App' image={images.App} label="App" changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                        <ImageButton name='App' image={images.App} label="App" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
 
-                        <ImageButton name='NotWorking' image={images.NotWorking} label="Not Working" changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                        <ImageButton name='NotWorking' image={images.NotWorking} label="Not Working" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
 
-                        <ImageButton name='Noise' image={images.Noise} label="Noise in the Scent Creator" changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                        <ImageButton name='Noise' image={images.Noise} label="Noise in the Scent Creator" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
 
-                        <ImageButton name='DoorProblems' image={images.DoorProblems} label="Door Problems" changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                        <ImageButton name='DoorProblems' image={images.DoorProblems} label="Door Problems" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
 
-                        <ImageButton name='PartMissing' image={images.PartMissing} label="Part missing" changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                        <ImageButton name='PartMissing' image={images.PartMissing} label="Part missing" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
 
-                        <ImageButton name='Smells' image={images.Smells} label="Smells in the Scent Creator" changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                        <ImageButton name='Smells' image={images.Smells} label="Smells in the Scent Creator" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
                     
-                        <ImageButton name='PerfumeResults' image={images.PerfumeResults} label="Perfume Results" changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                        <ImageButton name='PerfumeResults' image={images.PerfumeResults} label="Perfume Results" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
                     
-                        <ImageButton name='Staints' image={images.Staints} label="Leakage / Staints / Drops" changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                        <ImageButton name='Staints' image={images.Staints} label="Leakage / Staints / Drops" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
 
                     </div>
                 </div>

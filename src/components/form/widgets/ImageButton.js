@@ -13,7 +13,7 @@ export default class ImageButton extends Component {
     }
 
     changeWindow(e){
-        this.props.addLog("Kind of problem", this.props.label)
+        this.props.addLog(this.props.title, this.props.label)
         this.props.changeWindow(this.state.name);
     }
 

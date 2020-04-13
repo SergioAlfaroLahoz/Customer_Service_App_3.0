@@ -9,6 +9,7 @@ import KindOfProblem from './components/KindOfProblem';
 import QForm from './components/QForm';
 import ProblemSolved from './components/ProblemSolved';
 import ProblemNotSolved from './components/ProblemNotSolved';
+import MultipleChoice from './components/MultipleChoice';
 
 class App extends Component {
 
@@ -17,7 +18,7 @@ class App extends Component {
     this.changeWindow = this.changeWindow.bind(this);
     var date = new Date();
     this.state = {
-      menu: 'MultipleChoice', //Form
+      menu: 'KindOfProblem', //Form
       window: 'Login', //Login
       data: {Date: date},
       instruction: '',
@@ -35,6 +36,7 @@ class App extends Component {
   changeWindow = (w) => {
     switch (this.state.menu) {
 
+      //-------------------------- FORM --------------------------
       case 'Form':
         switch (this.state.window){
           case 'Login':
@@ -51,13 +53,31 @@ class App extends Component {
 
           case 'UserInformation':
             this.setState({
-              menu: 'MultipleChoice'
+              menu: 'KindOfProblem'
+            })
+            break;
+
+          case 'Annotation':
+            this.setState({
+              menu: 'ProblemNotSolved'
+            })
+            break;
+          
+          case 'CartridgeAnnotation':
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'AnythingElse',
+              instruction: '',
+              question: 'Anything else?',
+              choice1: 'YES',
+              choice2: 'NO'
             })
             break;
         }
       break;
 
-      case 'MultipleChoice':
+      //--------------------------KIND OF PROBLEM --------------------------
+      case 'KindOfProblem':
         if(w==='ErrorCode'){
           this.setState({
             menu: 'QuestionForm',
@@ -98,9 +118,182 @@ class App extends Component {
             choice1: 'Perfume',
             choice2: 'Burnt'
           })
+        }else if(w==='DoorProblems'){
+          this.setState({
+            menu: 'MultipleChoice',
+            window: 'DoorProblems'
+          })
+        }else if(w==='PartMissing'){
+          this.setState({
+            menu: 'MultipleChoice',
+            window: 'PartMissing'
+          })
         }
         break;
       
+      //-------------------------- MULTIPLE CHOICE --------------------------
+      case 'MultipleChoice':
+        if(w==='NotClose'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'NotClose',
+            question: 'Closed with basket?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='NotOpen'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'NotOpen',
+            question: 'Right pushing point?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='OpensAlone'){
+          this.addLog('Problem', 'Push to open broken or back wires blocking')
+          this.setState({
+            menu: 'ProblemNotSolved',
+          })
+        }else if(w==='Vibration'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'Vibration',
+            question: 'When vibrates?',
+            choice1: 'Basket turning',
+            choice2: 'Dosing'
+          })
+        }else if(w==='NotFullyOpen'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'NotFullyOpen',
+            instruction: 'When guides are new, they are a bit hard and they can get a little stuck at the end. When they have some use, they will be lighter',
+            question: 'If pulling harder opens?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='Door'){
+          this.setState({
+            menu: 'MultipleChoice',
+            window: 'PartMissingDoor'
+          })
+        }else if(w==='CoverOak'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'AnythingElse',
+            instruction: '',
+            question: 'Anything else?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='CoverZebrawood'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'AnythingElse',
+            instruction: '',
+            question: 'Anything else?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='CoverDarkTeak'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'AnythingElse',
+            instruction: '',
+            question: 'Anything else?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='CoverTeak'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'AnythingElse',
+            instruction: '',
+            question: 'Anything else?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='PowerCord'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'AnythingElse',
+            instruction: '',
+            question: 'Anything else?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='Manuals'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'AnythingElse',
+            instruction: '',
+            question: 'Anything else?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='Cartridges'){
+          this.setState({
+            menu: 'Form',
+            window: 'CartridgeAnnotation',
+            instruction: 'Which ones?'
+          })
+        }else if(w==='DiscoveryKit'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'AnythingElse',
+            instruction: '',
+            question: 'Anything else?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='StartingKit'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'AnythingElse',
+            instruction: '',
+            question: 'Anything else?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='WoodenBottle'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'AnythingElse',
+            instruction: '',
+            question: 'Anything else?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='BottleHolder6'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'AnythingElse',
+            instruction: '',
+            question: 'Anything else?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='BottleHolder3'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'AnythingElse',
+            instruction: '',
+            question: 'Anything else?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='ScentCreator'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'AnythingElse',
+            instruction: '',
+            question: 'Anything else?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }
+      break;
+      
+      //-------------------------- QUESTION FORM --------------------------
       case 'QuestionForm':
         switch (this.state.window){
           case 'ErrorCode':
@@ -443,6 +636,216 @@ class App extends Component {
                 })
               }
               break;
+
+            case 'SmellsPerfume':
+              if(w==='Device/Capsules'){
+                this.setState({
+                  menu: 'Form',
+                  window: 'Annotation',
+                  instruction: 'Capsules might be broken, identify which ones. Inform we will substitute for new capsules',
+                })
+              }else{
+                this.setState({
+                  window: 'SmellsPerfumeBottles',
+                  instruction: 'Tight stronger the pump into bottle',
+                  question: 'Problem solved?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }
+              break;
+
+            case 'SmellsPerfumeBottles':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'ProblemSolved'
+                })
+              }else{
+                this.setState({
+                  menu: 'Form',
+                  window: 'Annotation',
+                  instruction: 'Identify which ones. Inform we will substitute for new bottles and pumps'
+                })
+              }
+              break;
+            
+            case 'NotClose':
+              if(w==='YES'){
+                this.setState({
+                  window: 'NotCloseYes',
+                  instruction: '',
+                  question: 'Capsules well fitted in the basket?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }else{
+                this.setState({
+                  window: 'NotCloseNo',
+                  instruction: '',
+                  question: 'At what point of closure does it get stuck?',
+                  choice1: 'START',
+                  choice2: 'END'
+                })
+              }
+              break;
+            
+            case 'NotCloseYes':
+              if(w==='YES'){
+                this.setState({
+                  window: 'NotCloseNo',
+                  instruction: '',
+                  question: 'At what point of closure does it get stuck?',
+                  choice1: 'START',
+                  choice2: 'END'
+                })
+              }else{
+                this.setState({
+                  window: 'NotCloseYesNo',
+                  instruction: 'Please, insert the capsules in their correct position',
+                  question: 'Problem solved?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }
+              break;
+
+            case 'NotCloseYesNo':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'ProblemSolved'
+                })
+              }else{
+                this.setState({
+                  window: 'NotCloseNo',
+                  instruction: '',
+                  question: 'At what point of closure does it get stuck?',
+                  choice1: 'START',
+                  choice2: 'END'
+                })
+              }
+              break;
+            
+            case 'NotCloseNo':
+              if(w==='START'){
+                this.addLog('Problem', 'Doser actuator blocked in down position')
+                this.setState({
+                  window: 'FinalQuestion',
+                  instruction: 'Switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
+                  question: 'Can you close the door now?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }else{
+                this.addLog('Problem', 'Push to open broken')
+                this.setState({
+                  menu: 'ProblemNotSolved'
+                })
+              }
+              break;
+
+            case 'NotOpen':
+              if(w==='YES'){
+                this.addLog('Problem', 'Doser actuator blocked in down position or push to open broken or back wire blocking')
+                this.setState({
+                  window: 'FinalQuestion',
+                  instruction: 'Switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
+                  question: 'Can you open the door now?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }else{
+                this.setState({
+                  window: 'NotOpenNo',
+                  instruction: 'Please, follow the quick start guide instructions to know how to open the door',
+                  question: 'Can you open the door now?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }
+              break;
+
+            case 'NotOpenNo':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'ProblemSolved'
+                })
+              }else{
+                this.addLog('Problem', 'Doser actuator blocked in down position, push to open broken or back wire blocking')
+                this.setState({
+                  window: 'FinalQuestion',
+                  instruction: 'Switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
+                  question: 'Can you open the door now?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }
+              break;
+            
+            case 'Vibration':
+              if(w==='Basket turning'){
+                this.setState({
+                  window: 'VibrationTurn',
+                  instruction: 'its normal that machine vibrates while is turning',
+                  question: 'Machine reads all cartridges ok (cartridges inserted in basket appears as readed in the app after 15 seconds)?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }else{
+                this.setState({
+                  window: 'FinalQuestion',
+                  instruction: 'its normal that machine vibrates while is dosing',
+                  question: 'Perfume results are correct (quantity, smells...)?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }
+              break;
+
+            case 'VibrationTurn':
+              if(w==='YES'){
+                this.setState({
+                  window: 'FinalQuestion',
+                  instruction: 'its normal that machine vibrates while is dosing',
+                  question: 'Perfume results are correct (quantity, smells...)?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }else{
+                this.setState({
+                  menu: 'ProblemNotSolved'
+                })
+              }
+              break;
+
+            case 'NotFullyOpen':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'ProblemSolved'
+                })
+              }else{
+                this.addLog('Problem', 'Maybe doser actuator is blocked in down position')
+                this.setState({
+                  window: 'FinalQuestion',
+                  instruction: 'Switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
+                  question: 'Can you open the door now?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }
+              break;
+          
+            case 'AnythingElse':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'MultipleChoice',
+                  window: 'PartMissing'
+                })
+              }else{
+                this.setState({
+                  menu: 'ProblemNotSolved'
+                })
+              }
+              break;
             
 
         }
@@ -459,15 +862,22 @@ class App extends Component {
       case 'Form':
         return(
           <div className="app-holder">
-            <Form window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
+            <Form window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog} instruction={this.state.instruction}/>
             <Img window={this.state.window}/>
+          </div>
+        )
+      
+      case 'KindOfProblem':
+        return(
+          <div className="app-holder">
+              <KindOfProblem window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
           </div>
         )
       
       case 'MultipleChoice':
         return(
           <div className="app-holder">
-              <KindOfProblem window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
+              <MultipleChoice window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
           </div>
         )
 

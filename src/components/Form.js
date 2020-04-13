@@ -6,7 +6,7 @@ import '../css/form/form.css';
 import Login from "./form/Login";
 import SerialNumber from "./form/SerialNumber";
 import UserInformation from './form/UserInformation';
-import ProblemNotSolved from './ProblemNotSolved';
+import Annotation from './form/Annotation';
 
 export default class Form extends Component {
 
@@ -32,6 +32,16 @@ export default class Form extends Component {
             case 'UserInformation':
                 return(
                     <UserInformation changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                )
+            
+            case 'Annotation':
+                return(
+                    <Annotation changeWindow={this.props.changeWindow} addLog={this.props.addLog} instruction={this.props.instruction}/>
+                )
+
+            case 'CartridgeAnnotation':
+                return(
+                    <Annotation changeWindow={this.props.changeWindow} addLog={this.props.addLog} instruction={this.props.instruction}/>
                 )
         }  
     }

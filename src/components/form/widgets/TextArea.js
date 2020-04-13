@@ -17,7 +17,7 @@ export default class TextArea extends Component {
     }
 
     addLog(){
-        this.props.addLog('Additional Comments', this.state.input);
+        this.props.addLog(this.props.title, this.state.input);
     }
 
     //e.target.name devuelve el 'name' de el widget (label)
@@ -54,7 +54,7 @@ export default class TextArea extends Component {
         return(
             <div className="input-group">
                 <br/>
-                <label className="textAreaLabel">Additional Comments:</label>
+                <label className="textAreaLabel">{this.props.title}</label>
                 <textarea type="text" ref={this.textInput} id="input" name="input" placeholder="Type here additional comments" value={this.state.input} onChange={this.onChange} onFocus={this.onFocus} onBlur={this.onBlur}/>
             </div>
         )
