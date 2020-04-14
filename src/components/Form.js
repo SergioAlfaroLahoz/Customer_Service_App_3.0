@@ -43,6 +43,11 @@ export default class Form extends Component {
                 return(
                     <Annotation changeWindow={this.props.changeWindow} addLog={this.props.addLog} instruction={this.props.instruction}/>
                 )
+            
+            case 'AnnotationNext':
+                return(
+                    <Annotation changeWindow={this.props.changeWindow} addLog={this.props.addLog} instruction={this.props.instruction}/>
+                )
         }  
     }
 }

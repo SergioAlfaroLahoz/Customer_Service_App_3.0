@@ -6,7 +6,7 @@ import PdfGenerate from './PdfGenerate';
 
 import TextArea from './form/widgets/TextArea';
 
-export default class ProblemSolved extends Component {
+export default class AssignTo extends Component {
 
     constructor(args){
         super(args);
@@ -21,6 +21,10 @@ export default class ProblemSolved extends Component {
                 <div className="wrap">
                     <form action="" className="form" name="form_register" method="get">
                         <label>End of query</label>
+                        <br/><br/>
+                        <label>Assign case to {this.props.name}</label>
+                        <br/><br/>
+                        <label>Send incidence report to support@thealchemistatelier.com</label>
                         <br/><br/>
                         <label>Thanks for use Customer Service App</label>
                         <br/><br/>

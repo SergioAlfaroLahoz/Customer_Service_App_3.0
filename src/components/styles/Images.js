@@ -32,6 +32,9 @@ import ScentCreator from '../../img/ScentCreator.png';
 import CoverOak from '../../img/CoverOak.png';
 import CoverDarkTeak from '../../img/CoverDarkTeak.png';
 import CoverTeak from '../../img/CoverTeak.png';
+import ErrorCodeRed from '../../img/ErrorCodeRed.png';
+import ErrorCodePurple from '../../img/ErrorCodePurple.png';
+import ErrorCodeWhite from '../../img/ErrorCodeWhite.png';
 
 
 const images = {
@@ -70,7 +73,11 @@ const images = {
     ScentCreator: ScentCreator,
     CoverOak: CoverOak,
     CoverDarkTeak: CoverDarkTeak,
-    CoverTeak: CoverTeak
+    CoverTeak: CoverTeak,
+    ErrorCodeRed: ErrorCodeRed,
+    ErrorCodePurple: ErrorCodePurple,
+    ErrorCodeWhite: ErrorCodeWhite,
+    AssignTo: TheAlchemist
 };
 
 export default images;

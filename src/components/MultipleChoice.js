@@ -95,6 +95,27 @@ export default class MultipleChoice extends Component {
                         </div>
                     </div>
                 )
+            
+            case 'ErrorCode':
+                return(
+                    <div className="holder">
+                        <div className="frame">
+                            <h1>Colour/Code?</h1>
+                            <br/><br/>
+                            <div className="images-holder">
+                                <div>
+
+                                    <ImageButton name='ErrorCodeRed' image={images.ErrorCodeRed} label="Red" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Colour/Code?"/>
+
+                                    <ImageButton name='ErrorCodePurple' image={images.ErrorCodePurple} label="Purple" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Colour/Code?"/>
+
+                                    <ImageButton name='ErrorCodeWhite' image={images.ErrorCodeWhite} label="Blue/White blinking" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Colour/Code?"/>
+                              
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )
         }
     }
 }

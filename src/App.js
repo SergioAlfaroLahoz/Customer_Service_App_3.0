@@ -7,9 +7,11 @@ import Form from './components/Form';
 import Img from './components/Img';
 import KindOfProblem from './components/KindOfProblem';
 import QForm from './components/QForm';
+import QForm3Choice from './components/QForm3Choice';
 import ProblemSolved from './components/ProblemSolved';
 import ProblemNotSolved from './components/ProblemNotSolved';
 import MultipleChoice from './components/MultipleChoice';
+import AssignTo from './components/AssignTo';
 
 class App extends Component {
 
@@ -24,7 +26,9 @@ class App extends Component {
       instruction: '',
       question: 'Question 1',
       choice1: 'YES',
-      choice2: 'NO'
+      choice2: 'NO',
+      choice3: '',
+      name: ''
     }
   }
 
@@ -73,6 +77,11 @@ class App extends Component {
               choice2: 'NO'
             })
             break;
+          case 'AnnotationNext':
+            this.setState({
+              menu: 'ProblemSolved'
+            })
+            break;
         }
       break;
 
@@ -80,11 +89,8 @@ class App extends Component {
       case 'KindOfProblem':
         if(w==='ErrorCode'){
           this.setState({
-            menu: 'QuestionForm',
+            menu: 'MultipleChoice',
             window: 'ErrorCode',
-            question: 'Colour/Code?',
-            choice1: 'RED',
-            choice2: 'PURPLE'
           })
         }else if(w==='App'){
           this.setState({
@@ -127,6 +133,15 @@ class App extends Component {
           this.setState({
             menu: 'MultipleChoice',
             window: 'PartMissing'
+          })
+        }else if(w==='PerfumeResults'){
+          this.setState({
+            menu: 'QuestionForm3Choice',
+            window: 'PerfumeResults',
+            question: 'Which is the problem?',
+            choice1: 'Smell of perfume result',
+            choice2: 'Not right volume',
+            choice3: 'Allergic reaction on skin'
           })
         }
         break;
@@ -289,6 +304,30 @@ class App extends Component {
             question: 'Anything else?',
             choice1: 'YES',
             choice2: 'NO'
+          })
+        }else if(w==='ErrorCodeRed'){
+          this.setState({
+            menu: 'QuestionForm',
+            instruction: '',
+            window: 'ErrorCodeRed',
+            question: 'Can you open the door?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='ErrorCodePurple'){
+          this.setState({
+            menu: 'QuestionForm',
+            instruction: '',
+            window: 'ErrorCodePurple',
+            question: 'Can you open the door?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='ErrorCodeWhite'){
+          this.setState({
+            menu: 'Form',
+            window: 'AnnotationNext',
+            instruction: 'Bottle sensor is very sensitive to high direct light, and can make the lights state change, there is no problem with it, machine keeps working fine. If you want to solve the blink, change machine orientation to a non-direct light exposition'
           })
         }
       break;
@@ -845,11 +884,55 @@ class App extends Component {
                   menu: 'ProblemNotSolved'
                 })
               }
-              break;
-            
-
+              break;  
+              
+            case 'WrongVolume':
+              if(w==='Too much'){
+                this.setState({
+                  menu: 'Form',
+                  window: 'AnnotationNext',
+                  instruction: "When the Scent Creator prints a new formula, it calculates the maximum possible volume that can fit in the bottle. But the Scent Creator doesn't know if there's already perfume initially into the bottle. If you make a test and the fill the bottle with a new print, you run the risk of overflowing"
+                })
+              }else{
+                this.setState({
+                  menu: 'QuestionForm',
+                  window: 'FinalQuestion',
+                  instruction: "It's possible that due to the composition of the selected formula, it is not possible to fill the bottle completely. Please, try to make a formula with only one cartridge and be sure you select the correct perfume volume, if the amount of perfume is correct, the Scent Creator works well",
+                  question: 'Problem solved?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }
+              break; 
         }
-
+      
+      //-------------------------- QUESTION FORM 3 CHOICE --------------------------
+      case 'QuestionForm3Choice':
+        switch (this.state.window){
+          case 'PerfumeResults':
+            if(w==='Smell of perfume result'){
+              this.addLog('Assign case to', 'Louise')
+              this.setState({
+                menu: 'AssignTo',
+                name: 'Louise'
+              })
+            }else if(w==='Not right volume'){
+              this.setState({
+                menu: 'QuestionForm',
+                window: 'WrongVolume',
+                question: 'Too much or too little?',
+                choice1: 'Too much',
+                choice2: 'Too little'
+              })
+            }else{
+              this.addLog('Assign case to', 'Hugo')
+              this.setState({
+                menu: 'AssignTo',
+                name: 'Hugo'
+              })
+            }
+            break;
+        }
       default: 
         break;
     }
@@ -886,6 +969,22 @@ class App extends Component {
           <div className="app-holder">
               <QForm instruction={this.state.instruction} question={this.state.question} choice1={this.state.choice1} choice2={this.state.choice2} window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
               <Img window={this.state.window}/>
+          </div>
+        )
+
+      case 'QuestionForm3Choice':
+        return(
+          <div className="app-holder">
+              <QForm3Choice instruction={this.state.instruction} question={this.state.question} choice1={this.state.choice1} choice2={this.state.choice2} choice3={this.state.choice3} window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
+              <Img window={this.state.window}/>
+          </div>
+        )
+
+      case 'AssignTo':
+        return(
+          <div className="app-holder">
+              <AssignTo data={this.state.data} addLog={this.addLog} name={this.state.name}/>
+              <Img window={this.state.menu}/>
           </div>
         )
 
