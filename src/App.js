@@ -143,6 +143,15 @@ class App extends Component {
             choice2: 'Not right volume',
             choice3: 'Allergic reaction on skin'
           })
+        }else if(w==='Staints'){
+          this.setState({
+            menu: 'QuestionForm3Choice',
+            window: 'Staints',
+            question: 'Where?',
+            choice1: 'Basket',
+            choice2: 'Capsule',
+            choice3: 'Base of device'
+          })
         }
         break;
       
@@ -329,6 +338,33 @@ class App extends Component {
             window: 'AnnotationNext',
             instruction: 'Bottle sensor is very sensitive to high direct light, and can make the lights state change, there is no problem with it, machine keeps working fine. If you want to solve the blink, change machine orientation to a non-direct light exposition'
           })
+        }else if(w==='NotBlend'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'NotBlend',
+            instruction: '',
+            question: 'Is App paired with the Scent Creator and bottle well placed?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='NotPair'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'HowToPair',
+            instruction: 'Please, follow the starting guide instructions to pair the App with the Scent Creator. Be sure to have bluetooth and location permissions activated. Remember to pair always from the pairing menu of the app and not from the mobile settings. Also make sure the scent creator is on and with lights fixed in blue (without blinking)',
+            question: 'Pairing problem solved after instructions?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='NoBottleDetected'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'NotBottleRecognition',
+            instruction: 'With app paired and bottle placed...',
+            question: 'Scent creator lights in white/violet?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
         }
       break;
       
@@ -397,6 +433,20 @@ class App extends Component {
               }
               break;
 
+          case 'AndroidIOS':
+            if(w==='Android'){
+              this.setState({
+                menu: 'MultipleChoice',
+                window: 'AppChoice'
+              })
+            }else{
+              this.setState({
+                menu: 'MultipleChoice',
+                window: 'AppChoice'
+              })
+            }
+            break;
+          
           case 'ErrorCodeRedNo':
             if(w==='YES'){
               this.setState({
@@ -904,6 +954,124 @@ class App extends Component {
                 })
               }
               break; 
+
+            case 'StaintsBase':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'Form',
+                  window: 'AnnotationNext',
+                  instruction: "When the Scent Creator prints a new formula, it calculates the maximum possible volume that can fit in the bottle. But the Scent Creator doesn't know if there's already perfume initially into the bottle. If you make a test and the fill the bottle with a new print, you run the risk of overflowing"
+                })
+              }else{
+                this.setState({
+                  menu: 'ProblemNotSolved'
+                })
+              }
+              break;  
+
+            case 'NotBlend':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'QuestionForm',
+                  window: 'NotBlendYes',
+                  question: 'App recognize cartridges inserted in the Scent Creator?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }else{
+                this.setState({
+                  menu: 'QuestionForm',
+                  window: 'HowToPair',
+                  instruction: 'Please, follow the starting guide instructions to pair the App with the Scent Creator. Be sure to have bluetooth and location permissions activated. Remember to pair always from the pairing menu of the app and not from the mobile settings. Also make sure the scent creator is on and with lights fixed in blue (without blinking)',
+                  question: 'Pair problem solved after instructions?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }
+              break;  
+
+            case 'NotBlendYes':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'QuestionForm',
+                  window: 'NotBlendYesFormOk',
+                  question: 'Have you selected a formula with cartridges inserted in the Scent Creator?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }else{
+                this.setState({ //Completar!!!!!!
+                  
+                })
+              }
+              break;  
+
+            case 'NotBlendYesFormOk':
+              if(w==='YES'){
+                this.addLog('Assign case to', 'Albert')
+                this.setState({
+                  menu: 'AssignTo',
+                  name: 'Albert'
+                })
+              }else{
+                this.setState({
+                  menu: 'QuestionForm',
+                  window: 'ProblemNotSolvedAlbert',
+                  question: 'Problem solved after select correct formula?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }
+              break; 
+
+            case 'ProblemNotSolvedAlbert':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'ProblemSolved'
+                })
+              }else{
+                this.addLog('Assign case to', 'Albert')
+                this.setState({
+                  menu: 'AssignTo',
+                  name: 'Albert'
+                })
+              }
+              break;
+
+            case 'HowToPair':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'ProblemSolved'
+                })
+              }else{
+                this.addLog('Assign case to', 'Albert')
+                this.setState({
+                  menu: 'AssignTo',
+                  name: 'Albert'
+                })
+              }
+              break;
+
+            case 'NotBottleRecognition':
+              if(w==='YES'){
+                this.setState({
+                  window: 'NotBottleRecognitionApp',
+                  instruction: 'While white/violet lights in the Scent Creator...',
+                  question: 'App recognizes bottle?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }else{
+                this.addLog('Problem', 'Scent Creator sensor dont recognize bottle')
+                this.setState({
+                  window: 'FinalQuestion',
+                  instruction: 'In low light enviroments, bottle sensor can fail. Try to use the Scent Creator in other place, or orient it to other position',
+                  question: 'Problem solved?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }
+              break;
         }
       
       //-------------------------- QUESTION FORM 3 CHOICE --------------------------
@@ -929,6 +1097,29 @@ class App extends Component {
               this.setState({
                 menu: 'AssignTo',
                 name: 'Hugo'
+              })
+            }
+            break;
+
+          case 'Staints':
+            if(w==='Basket'){
+              this.addLog('Problem', 'Capsule Broken')
+              this.setState({
+                menu: 'ProblemNotSolved'
+              })
+            }else if(w==='Capsule'){
+              this.addLog('Problem', 'Capsule Broken')
+              this.setState({
+                menu: 'ProblemNotSolved'
+              })
+            }else{
+              this.setState({
+                menu: 'QuestionForm',
+                window: 'StaintsBase',
+                instruction: '',
+                question: 'Overloading bottle?',
+                choice1: 'YES',
+                choice2: 'NO'
               })
             }
             break;

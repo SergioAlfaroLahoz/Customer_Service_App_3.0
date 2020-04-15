@@ -35,7 +35,18 @@ import CoverTeak from '../../img/CoverTeak.png';
 import ErrorCodeRed from '../../img/ErrorCodeRed.png';
 import ErrorCodePurple from '../../img/ErrorCodePurple.png';
 import ErrorCodeWhite from '../../img/ErrorCodeWhite.png';
-
+import NotBlend from '../../img/NotBlend.png';
+import NotPair from '../../img/NotPair.png';
+import NotCapsuleRecognition from '../../img/NoCapsuleRecognition.png';
+import NoBottleDetected from '../../img/NoBottleDetected.png';
+import WrongCapsuleName from '../../img/WrongCapsuleName.png';
+import NotWifiConnect from '../../img/NotWifiConnect.png';
+import NotUpdate from '../../img/NotUpdate.png';
+import AppHangs from '../../img/AppHangs.png';
+import NotIndicateFinish from '../../img/NotIndicateFinish.png';
+import CartridgeRecognition from '../../img/CartridgeRecognition.png';
+import HowToPair from '../../img/HowToPair.png';
+import NoAppBottleRecognition from '../../img/NoAppBottleRecognition.png';
 
 const images = {
     Login: TheAlchemist,
@@ -77,7 +88,19 @@ const images = {
     ErrorCodeRed: ErrorCodeRed,
     ErrorCodePurple: ErrorCodePurple,
     ErrorCodeWhite: ErrorCodeWhite,
-    AssignTo: TheAlchemist
+    AssignTo: TheAlchemist,
+    NotBlend: NotBlend,
+    NotPair: NotPair,
+    NotCapsuleRecognition: NotCapsuleRecognition,
+    NoBottleDetected: NoBottleDetected,
+    WrongCapsuleName: WrongCapsuleName,
+    NotWifiConnect: NotWifiConnect,
+    NotUpdate: NotUpdate,
+    AppHangs: AppHangs,
+    NotIndicateFinish: NotIndicateFinish,
+    NotBlendYes: CartridgeRecognition,
+    HowToPair: HowToPair,
+    NotBottleRecognitionApp: NoAppBottleRecognition
 };
 
 export default images;

@@ -116,6 +116,38 @@ export default class MultipleChoice extends Component {
                         </div>
                     </div>
                 )
+
+            case 'AppChoice':
+                return(
+                    <div className="holder">
+                        <div className="frame">
+                            <h1>Which is the app Problem?</h1>
+                            <br/><br/>
+                            <div className="images-holder">
+
+                                <ImageButton name='NotBlend' image={images.NotBlend} label="Does not Blend" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which is the app Problem?"/>
+
+                                <ImageButton name='NotPair' image={images.NotPair} label="Not Pairing" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which is the app Problem?"/>
+
+                                <ImageButton name='NotCapsuleRecognition' image={images.NotCapsuleRecognition} label="Not Capsule Recognition" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which is the app Problem?"/>
+
+                                <ImageButton name='NoBottleDetected' image={images.NoBottleDetected} label="No Bottle Detected" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which is the app Problem?"/>
+
+                                <ImageButton name='WrongCapsuleName' image={images.WrongCapsuleName} label="Wrong Capsule Name" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which is the app Problem?"/>
+                                
+                                <ImageButton name='NotWifiConnect' image={images.NotWifiConnect} label="Not Device Wifi Connection" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which is the app Problem?"/>
+
+                                <ImageButton name='NotUpdate' image={images.NotUpdate} label="App does Not Update" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which is the app Problem?"/>
+
+                                <ImageButton name='AppHangs' image={images.AppHangs} label="App Hangs" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which is the app Problem?"/>
+
+                                <ImageButton name='NotIndicateFinish' image={images.NotIndicateFinish} label="Not Indicate Finished Blend" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which is the app Problem?"/>
+
+                            </div>
+                        </div>
+                    </div>
+                )
+
         }
     }
 }
