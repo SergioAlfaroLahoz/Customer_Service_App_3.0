@@ -47,6 +47,7 @@ import NotIndicateFinish from '../../img/NotIndicateFinish.png';
 import CartridgeRecognition from '../../img/CartridgeRecognition.png';
 import HowToPair from '../../img/HowToPair.png';
 import NoAppBottleRecognition from '../../img/NoAppBottleRecognition.png';
+import CapsuleApp from '../../img/CapsuleApp.png';
 
 const images = {
     Login: TheAlchemist,
@@ -100,7 +101,10 @@ const images = {
     NotIndicateFinish: NotIndicateFinish,
     NotBlendYes: CartridgeRecognition,
     HowToPair: HowToPair,
-    NotBottleRecognitionApp: NoAppBottleRecognition
+    NotBottleRecognitionApp: NoAppBottleRecognition,
+    CapsuleApp: CapsuleApp,
+    CapsuleName: CapsuleApp
+
 };
 
 export default images;

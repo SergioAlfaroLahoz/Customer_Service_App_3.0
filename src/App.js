@@ -20,7 +20,7 @@ class App extends Component {
     this.changeWindow = this.changeWindow.bind(this);
     var date = new Date();
     this.state = {
-      menu: 'KindOfProblem', //Form
+      menu: 'KindOfProblem', //Form //KindOfProblem
       window: 'Login', //Login
       data: {Date: date},
       instruction: '',
@@ -365,6 +365,54 @@ class App extends Component {
             choice1: 'YES',
             choice2: 'NO'
           })
+        }else if(w==='NotCapsuleRecognition'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'CapsuleApp',
+            instruction: 'Please, use the app cartridge reader function',
+            question: 'App reads cartridge?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='WrongCapsuleName'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'CapsuleName',
+            instruction: 'Please, use the app cartridge reader function',
+            question: 'Cartridge label and the readed value match?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='NotWifiConnect'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'ProblemNotSolvedAlbert',
+            instruction: 'Be sure you enter wifi credentials properly. Try to connect machine to a stable domestic network',
+            question: 'Problem solved?',
+            choice1: 'YES',
+            choice2: 'NO'
+          })
+        }else if(w==='NotUpdate'){
+          this.setState({
+            menu: 'QuestionForm',
+            window: 'NotUpdate',
+            instruction: '',
+            question: 'Does not update App or Scent Creator?',
+            choice1: 'App',
+            choice2: 'Scent Creator'
+          })
+        }else if(w==='AppHangs'){
+          this.addLog('Assign case to', 'Albert')
+          this.setState({
+            menu: 'AssignTo',
+            name: 'Albert'
+          })
+        }else if(w==='NotIndicateFinish'){
+          this.addLog('Assign case to', 'Albert')
+          this.setState({
+            menu: 'AssignTo',
+            name: 'Albert'
+          })
         }
       break;
       
@@ -581,10 +629,11 @@ class App extends Component {
                 choice2: 'NO'
               })
             }else{
-              this.setState({ //Completar 
-                window: '',
-                instruction: 'Follow the instructions of the starting guide to pair the Scent Creator with the App',
-                question: 'App paired after instructions?',
+              this.setState({
+                menu: 'QuestionForm',
+                window: 'HowToPair',
+                instruction: 'Please, follow the starting guide instructions to pair the App with the Scent Creator. Be sure to have bluetooth and location permissions activated. Remember to pair always from the pairing menu of the app and not from the mobile settings. Also make sure the scent creator is on and with lights fixed in blue (without blinking)',
+                question: 'Pairing problem solved after instructions?',
                 choice1: 'YES',
                 choice2: 'NO'
               })
@@ -974,6 +1023,7 @@ class App extends Component {
                 this.setState({
                   menu: 'QuestionForm',
                   window: 'NotBlendYes',
+                  instruction: '',
                   question: 'App recognize cartridges inserted in the Scent Creator?',
                   choice1: 'YES',
                   choice2: 'NO'
@@ -1000,11 +1050,83 @@ class App extends Component {
                   choice2: 'NO'
                 })
               }else{
-                this.setState({ //Completar!!!!!!
-                  
+                this.setState({
+                  menu: 'QuestionForm',
+                  window: 'CapsuleApp',
+                  instruction: 'Please, use the app cartridge reader function',
+                  question: 'App reads cartridge?',
+                  choice1: 'YES',
+                  choice2: 'NO'
                 })
               }
               break;  
+
+            case 'CapsuleApp':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'QuestionForm',
+                  window: 'CapsuleAppYes',
+                  instruction: '',
+                  question: 'Cartridge name and quantity are correct?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }else{
+                this.setState({
+                  menu: 'QuestionForm',
+                  window: 'CapsuleAppNoRecognize',
+                  question: 'Dont recognize just one cartridge or all of them?',
+                  choice1: 'JUST ONE',
+                  choice2: 'ALL'
+                })
+              }
+              break; 
+
+            case 'CapsuleAppYes':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'QuestionForm',
+                  window: 'CapsuleAppNoRecognizeAll',
+                  question: 'When you insert them into the Scent Creator... Does it make any noise?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }else{
+                this.setState({
+                  menu: 'ProblemNotSolved',
+                })
+              }
+              break; 
+
+            case 'CapsuleAppNoRecognize':
+              if(w==='JUST ONE'){
+                this.setState({
+                  menu: 'ProblemNotSolved',
+                })
+              }else{
+                this.setState({
+                  menu: 'QuestionForm',
+                  window: 'CapsuleAppNoRecognizeAll',
+                  question: 'When you insert them into the Scent Creator... Does it make any noise?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }
+              break; 
+
+            case 'CapsuleAppNoRecognizeAll':
+              if(w==='YES'){
+                this.addLog('Problem', 'Maybe RFID is broken')
+                this.setState({
+                  menu: 'ProblemNotSolved',
+                })
+              }else{
+                this.addLog('Problem', 'Switch door broken')
+                this.setState({
+                  menu: 'ProblemNotSolved',
+                })
+              }
+              break; 
 
             case 'NotBlendYesFormOk':
               if(w==='YES'){
@@ -1025,6 +1147,20 @@ class App extends Component {
               break; 
 
             case 'ProblemNotSolvedAlbert':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'ProblemSolved'
+                })
+              }else{
+                this.addLog('Assign case to', 'Albert')
+                this.setState({
+                  menu: 'AssignTo',
+                  name: 'Albert'
+                })
+              }
+              break;
+
+            case 'NotBottleRecognitionApp':
               if(w==='YES'){
                 this.setState({
                   menu: 'ProblemSolved'
@@ -1065,7 +1201,38 @@ class App extends Component {
                 this.addLog('Problem', 'Scent Creator sensor dont recognize bottle')
                 this.setState({
                   window: 'FinalQuestion',
-                  instruction: 'In low light enviroments, bottle sensor can fail. Try to use the Scent Creator in other place, or orient it to other position',
+                  instruction: 'In low light enviroments, bottle sensor can fail. Try to use the Scent Creator in other place, or orient it to other position. Try with other bottle or clean it',
+                  question: 'Problem solved?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
+              }
+              break;
+
+            case 'CapsuleName':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'ProblemSolved',
+                })
+              }else{
+                this.setState({
+                  menu: 'ProblemNotSolved'
+                })
+              }
+              break;
+
+            case 'NotUpdate':
+              if(w==='App'){
+                this.addLog('Assign case to', 'Albert')
+                this.setState({
+                  menu: 'AssignTo',
+                  name: 'Albert'
+                })
+              }else{
+                this.setState({
+                  menu: 'QuestionForm',
+                  window: 'ProblemNotSolvedAlbert',
+                  instruction: 'Be sure you enter wifi credentials properly. Try to connect machine to a stable domestic network',
                   question: 'Problem solved?',
                   choice1: 'YES',
                   choice2: 'NO'
