@@ -21,7 +21,8 @@
 .frame .images-holder {
   width: 100%;
   background: #fff;
-  height: 500px;
+  height: auto;
+  overflow: auto;
   text-align: center;
 }
 

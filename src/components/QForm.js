@@ -8,6 +8,7 @@ export default class QForm extends Component {
         super(args);
         this.changeWindowChoice1 = this.changeWindowChoice1.bind(this);
         this.changeWindowChoice2 = this.changeWindowChoice2.bind(this);
+        this.changeWindowOther = this.changeWindowOther.bind(this);
         this.state = {
             instruction: this.props.instruction,
             question: this.props.question,
@@ -26,6 +27,11 @@ export default class QForm extends Component {
         this.props.changeWindow(this.props.choice2);
     }
 
+    changeWindowOther(){
+        this.props.addLog(this.props.question, 'Other');
+        this.props.changeWindow('Other');
+    }
+
     render(){
         return(
             <div className="form-holder">
@@ -39,6 +45,9 @@ export default class QForm extends Component {
                             <input type="button" id="btn-submit1" value={this.props.choice1} onClick={this.changeWindowChoice1}/>
                             <input type="button" id="btn-submit2" value={this.props.choice2} onClick={this.changeWindowChoice2}/>
                         </div>
+                        <br/><br/><br/><br/><br/>
+                        <hr/>
+                        <input type="button" id="btn-other" value="OTHER" onClick={this.changeWindowOther}/>
                     </form>
                 </div>
             </div>

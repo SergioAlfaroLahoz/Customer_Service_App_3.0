@@ -41,6 +41,8 @@ export default class KindOfProblem extends Component {
                     
                         <ImageButton name='Staints' image={images.Staints} label="Leakage / Staints / Drops" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
 
+                        <ImageButton name='Other' image={images.Other} label="Other" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
+
                     </div>
                 </div>
             </div>

@@ -9,6 +9,7 @@ export default class QForm3Choice extends Component {
         this.changeWindowChoice1 = this.changeWindowChoice1.bind(this);
         this.changeWindowChoice2 = this.changeWindowChoice2.bind(this);
         this.changeWindowChoice3 = this.changeWindowChoice3.bind(this);
+        this.changeWindowOther = this.changeWindowOther.bind(this);
         this.state = {
             instruction: this.props.instruction,
             question: this.props.question,
@@ -33,6 +34,11 @@ export default class QForm3Choice extends Component {
         this.props.changeWindow(this.props.choice3);
     }
 
+    changeWindowOther(){
+        this.props.addLog(this.props.question, 'Other');
+        this.props.changeWindow('Other');
+    }
+
     render(){
         return(
             <div className="form-holder">
@@ -49,6 +55,9 @@ export default class QForm3Choice extends Component {
                             <br/>
                             <input type="button" className="Choice3" id="btn-submit3" value={this.props.choice3} onClick={this.changeWindowChoice3}/>
                         </div>
+                        <br/><br/><br/><br/><br/><br/><br/><br/>
+                        <hr/>
+                        <input type="button" id="btn-other" value="OTHER" onClick={this.changeWindowOther}/>
                     </form>
                 </div>
             </div>

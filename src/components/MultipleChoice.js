@@ -35,6 +35,8 @@ export default class MultipleChoice extends Component {
 
                                 <ImageButton name='NotFullyOpen' image={images.NotFullyOpen} label="Does not fully open" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which is the problem?"/>
 
+                                <ImageButton name='Other' image={images.Other} label="Other" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
+
                             </div>
                         </div>
                     </div>
@@ -68,6 +70,8 @@ export default class MultipleChoice extends Component {
  
                                 <ImageButton name='ScentCreator' image={images.ScentCreator} label="Scent Creator" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which one?(10)"/>
 
+                                <ImageButton name='Other' image={images.Other} label="Other" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
+
                             </div>
                         </div>
                     </div>
@@ -90,6 +94,8 @@ export default class MultipleChoice extends Component {
 
                                     <ImageButton name='CoverTeak' image={images.CoverTeak} label="Cover Teak" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which cover door?"/>
                                 
+                                    <ImageButton name='Other' image={images.Other} label="Other" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
+
                                 </div>
                             </div>
                         </div>
@@ -111,6 +117,8 @@ export default class MultipleChoice extends Component {
 
                                     <ImageButton name='ErrorCodeWhite' image={images.ErrorCodeWhite} label="Blue/White blinking" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Colour/Code?"/>
                               
+                                    <ImageButton name='Other' image={images.Other} label="Other" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
+
                                 </div>
                             </div>
                         </div>
@@ -142,6 +150,8 @@ export default class MultipleChoice extends Component {
                                 <ImageButton name='AppHangs' image={images.AppHangs} label="App Hangs" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which is the app Problem?"/>
 
                                 <ImageButton name='NotIndicateFinish' image={images.NotIndicateFinish} label="Not Indicate Finished Blend" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Which is the app Problem?"/>
+
+                                <ImageButton name='Other' image={images.Other} label="Other" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
 
                             </div>
                         </div>
