@@ -22,7 +22,7 @@ export default class ImageButton extends Component {
             <div className="button-holder">
                 <div name={this.props.name} style={{ textDecoration: 'none' }} onClick={this.changeWindow}>
                     <div className="button" name={this.props.name}>
-                        <label for={this.props.name}>{this.props.label}</label>
+                        <label htmlFor={this.props.name}>{this.props.label}</label>
                         <br/><br/>
                         <img src={this.props.image} alt="" className={this.props.name}/>
                     </div>

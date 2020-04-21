@@ -1,0 +1,29 @@
+@import ../_variables
+    
+.btn-back
+    position: fixed
+    background: $primary
+    z-index: 1000
+    margin-left: -700px
+    margin-top: 605px
+    width: 60px
+    height: 60px
+    display: grid
+    grid-gap: 10px
+    grid-template-columns: 1fr
+    grid-template-rows: 1fr
+    justify-items: center
+    align-items: center
+    border-radius: 10px
+    transition: all .3s ease
+
+    img
+        width: auto
+        height: 50px
+        margin: auto
+        display: block
+        overflow: auto
+
+    &:hover
+        background: $primary-selected
+        cursor: pointer

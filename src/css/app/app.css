@@ -17,5 +17,6 @@ body {
   margin: auto;
   width: 100%;
   height: auto;
+  z-index: 10;
 }
 /*# sourceMappingURL=app.css.map */

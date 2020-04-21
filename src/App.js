@@ -13,6 +13,7 @@ import ProblemNotSolved from './components/ProblemNotSolved';
 import MultipleChoice from './components/MultipleChoice';
 import AssignTo from './components/AssignTo';
 import OtherQ from './components/OtherQ';
+import Back from './components/Back';
 
 class App extends Component {
 
@@ -29,8 +30,11 @@ class App extends Component {
       choice1: 'YES',
       choice2: 'NO',
       choice3: '',
-      name: ''
-    }
+      name: '',
+      wCounter: 0,
+      register: [],
+      flag: false
+    };
   }
 
   addLog = (title, description) => {
@@ -38,7 +42,48 @@ class App extends Component {
     this.setState({});
   }
 
+  addRegister = () => {
+    this.state.wCounter ++;
+
+    const newRegister = {
+      menu: this.state.menu,
+      window: this.state.window,
+      instruction: this.state.instruction,
+      question: this.state.question,
+      choice1: this.state.choice1,
+      choice2: this.state.choice2,
+      choice3: this.state.choice3,
+      name: this.state.name
+    }
+    this.setState({
+      register: [...this.state.register, newRegister]
+    });
+  }
+
+  back = () => {
+    var l = this.state.register.length
+    this.setState({
+      menu: this.state.register[l-1].menu,
+      window: this.state.register[l-1].window,
+      instruction: this.state.register[l-1].instruction,
+      question: this.state.register[l-1].question,
+      choice1: this.state.register[l-1].choice1,
+      choice2: this.state.register[l-1].choice2,
+      choice3: this.state.choice3,
+      name: this.state.register[l-1].name
+    })
+    if(this.state.register[l-1].window==='Login'){
+      this.state.flag = false
+    }
+    this.state.register.pop();
+    this.setState({})
+  }
+
   changeWindow = (w) => {
+    if(this.state.window==='Login'){
+      this.state.flag = true;
+    }
+    this.addRegister();
     if(w==='Other'){
       this.setState({
         menu: 'Other'
@@ -1308,73 +1353,111 @@ class App extends Component {
   render() {
     switch(this.state.menu){
       case 'Form':
-        return(
-          <div className="app-holder">
-            <Form window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog} instruction={this.state.instruction}/>
-            <Img window={this.state.window}/>
-          </div>
-        )
+        if(this.state.flag===false){
+          return(
+            <div className="app-holder">
+              <Form window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog} instruction={this.state.instruction}/>
+              <Img window={this.state.window}/>
+            </div>
+            
+          )
+        }else{
+          return(
+            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+              <div className="app-holder">
+                <Form window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog} instruction={this.state.instruction}/>
+                <Img window={this.state.window}/>
+              </div>
+              <Back back={this.back}/>
+            </div>
+          )
+        }
       
       case 'KindOfProblem':
         return(
-          <div className="app-holder">
-              <KindOfProblem window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div className="app-holder">
+                <KindOfProblem window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
+                <Back back={this.back}/>
+            </div>
+            <Back back={this.back}/>
           </div>
         )
       
       case 'MultipleChoice':
         return(
-          <div className="app-holder">
-              <MultipleChoice window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div className="app-holder">
+                <MultipleChoice window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
+            </div>
+            <Back back={this.back}/>
           </div>
         )
 
       case 'QuestionForm':
         return(
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <div className="app-holder">
               <QForm instruction={this.state.instruction} question={this.state.question} choice1={this.state.choice1} choice2={this.state.choice2} window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
               <Img window={this.state.window}/>
           </div>
+          <Back back={this.back}/>
+          </div>  
         )
 
       case 'QuestionForm3Choice':
         return(
-          <div className="app-holder">
-              <QForm3Choice instruction={this.state.instruction} question={this.state.question} choice1={this.state.choice1} choice2={this.state.choice2} choice3={this.state.choice3} window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
-              <Img window={this.state.window}/>
-          </div>
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div className="app-holder">
+                <QForm3Choice instruction={this.state.instruction} question={this.state.question} choice1={this.state.choice1} choice2={this.state.choice2} choice3={this.state.choice3} window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
+                <Img window={this.state.window}/>
+            </div>
+            <Back back={this.back}/>
+          </div>        
         )
 
       case 'AssignTo':
         return(
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <div className="app-holder">
               <AssignTo data={this.state.data} addLog={this.addLog} name={this.state.name}/>
               <Img window={this.state.menu}/>
           </div>
+          <Back back={this.back}/>
+          </div>  
         )
 
       case 'ProblemSolved':
         return(
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <div className="app-holder">
               <ProblemSolved data={this.state.data} addLog={this.addLog}/>
               <Img window={this.state.menu}/>
           </div>
+          <Back back={this.back}/>
+          </div>  
         )
       
       case 'ProblemNotSolved':
         return(
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <div className="app-holder">
             <ProblemNotSolved window='ProblemNotSolved' data={this.state.data} addLog={this.addLog}/>
             <Img window='ProblemNotSolved'/>
           </div>
+          <Back back={this.back}/>
+          </div>  
         )
 
       case 'Other':
         return(
+          <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <div className="app-holder">
             <OtherQ data={this.state.data} addLog={this.addLog}/>
             <Img window='ProblemNotSolved'/>
           </div>
+          <Back back={this.back}/>
+          </div>  
         )
     }
   }

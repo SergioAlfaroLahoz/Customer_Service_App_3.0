@@ -1,0 +1,37 @@
+.btn-back {
+  position: fixed;
+  background: #303f9f;
+  z-index: 1000;
+  margin-left: -700px;
+  margin-top: 605px;
+  width: 60px;
+  height: 60px;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: 1fr;
+      grid-template-rows: 1fr;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+}
+
+.btn-back img {
+  width: auto;
+  height: 50px;
+  margin: auto;
+  display: block;
+  overflow: auto;
+}
+
+.btn-back:hover {
+  background: #1976D2;
+  cursor: pointer;
+}
+/*# sourceMappingURL=btn.css.map */
