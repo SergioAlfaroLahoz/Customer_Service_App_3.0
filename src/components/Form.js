@@ -7,6 +7,9 @@ import Login from "./form/Login";
 import SerialNumber from "./form/SerialNumber";
 import UserInformation from './form/UserInformation';
 import Annotation from './form/Annotation';
+import WAnnotation from './form/WAnnotation';
+import Delivery from "./form/Delivery";
+import VersionAnnotation from "./form/VersionAnnotation";
 
 export default class Form extends Component {
 
@@ -43,8 +46,23 @@ export default class Form extends Component {
                 return(
                     <Annotation changeWindow={this.props.changeWindow} addLog={this.props.addLog} instruction={this.props.instruction}/>
                 )
-            
-            case 'AnnotationNext':
+
+            case 'WCartridgeAnnotation':
+                return(
+                    <WAnnotation changeWindow={this.props.changeWindow} addLog={this.props.addLog} instruction={this.props.instruction}/>
+                )
+
+            case 'VersionAnnotation':
+                return(
+                    <VersionAnnotation changeWindow={this.props.changeWindow} addLog={this.props.addLog} instruction={this.props.instruction}/>
+                )
+
+            case 'TrackingNumber':
+                return(
+                    <Delivery changeWindow={this.props.changeWindow} addLog={this.props.addLog} instruction={this.props.instruction}/>
+                )
+
+            default:
                 return(
                     <Annotation changeWindow={this.props.changeWindow} addLog={this.props.addLog} instruction={this.props.instruction}/>
                 )

@@ -33,7 +33,7 @@ export default class KindOfProblem extends Component {
 
                         <ImageButton name='DoorProblems' image={images.DoorProblems} label="Door Problems" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
 
-                        <ImageButton name='PartMissing' image={images.PartMissing} label="Part missing" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
+                        <ImageButton name='Delivery' image={images.Delivery} label="Delivery Problems" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
 
                         <ImageButton name='Smells' image={images.Smells} label="Smells in the Scent Creator" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
                     

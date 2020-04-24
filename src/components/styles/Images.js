@@ -49,6 +49,12 @@ import HowToPair from '../../img/HowToPair.png';
 import NoAppBottleRecognition from '../../img/NoAppBottleRecognition.png';
 import CapsuleApp from '../../img/CapsuleApp.png';
 import Other from '../../img/Other.png';
+import Delivery from '../../img/Delivery.png';
+import TrackingNumber from '../../img/TrackingNumber.png';
+import NotReceived from '../../img/NotReceived.png';
+import BrokenPart from '../../img/BrokenPart.png';
+import WrongDelivery from '../../img/WrongDelivery.png';
+import AppVersion from '../../img/AppVersion.png';
 
 const images = {
     Login: TheAlchemist,
@@ -105,7 +111,13 @@ const images = {
     NotBottleRecognitionApp: NoAppBottleRecognition,
     CapsuleApp: CapsuleApp,
     CapsuleName: CapsuleApp,
-    Other: Other
+    Other: Other,
+    Delivery: Delivery,
+    TrackingNumber: TrackingNumber,
+    NotReceived: NotReceived,
+    BrokenPart: BrokenPart,
+    WrongDelivery: WrongDelivery,
+    VersionAnnotation: AppVersion
 };
 
 export default images;

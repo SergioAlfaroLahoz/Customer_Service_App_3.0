@@ -4,9 +4,8 @@ import '../../css/form/form.css';
 
 //Components 
 import TextLabel from './widgets/TextLabel'
-import EmailLabel from "./widgets/EmailLabel";
 
-export default class UserInformation extends Component {
+export default class VersionAnnotation extends Component {
 
     constructor(args){
         super(args);
@@ -20,8 +19,10 @@ export default class UserInformation extends Component {
             <div className="form-holder">
                 <div className="wrap">
                     <form action="" className="form" name="form_register" method="get">
-                        <TextLabel text={"Customer name"} addLog={this.props.addLog}/>
-                        <EmailLabel text={"Customer app email"} addLog={this.props.addLog}/>
+                        <label>{this.props.instruction}</label>
+                        <br/><br/><br/>
+                        <TextLabel text={"App version"} addLog={this.props.addLog}/>
+                        <TextLabel text={"Android/iOS version (optional)"} addLog={this.props.addLog}/>
                         <input type="button" id="btn-submit" value="Next" onClick={this.props.changeWindow}/>
                     </form>
                 </div>

@@ -128,9 +128,35 @@ class App extends Component {
                 choice2: 'NO'
               })
               break;
+
+            case 'WCartridgeAnnotation':
+              this.setState({
+                menu: 'QuestionForm',
+                window: 'WAnythingElse',
+                instruction: '',
+                question: 'Anything else?',
+                choice1: 'YES',
+                choice2: 'NO'
+              })
+              break;
+
             case 'AnnotationNext':
               this.setState({
                 menu: 'ProblemSolved'
+              })
+              break;
+
+            case 'TrackingNumber':
+              this.setState({
+                menu: 'MultipleChoice',
+                window: 'Delivery'
+              })
+              break;
+
+            case 'VersionAnnotation':
+              this.setState({
+                menu: 'MultipleChoice',
+                window: 'AppChoice'
               })
               break;
           }
@@ -180,10 +206,10 @@ class App extends Component {
               menu: 'MultipleChoice',
               window: 'DoorProblems'
             })
-          }else if(w==='PartMissing'){
+          }else if(w==='Delivery'){
             this.setState({
-              menu: 'MultipleChoice',
-              window: 'PartMissing'
+              menu: 'Form',
+              window: 'TrackingNumber'
             })
           }else if(w==='PerfumeResults'){
             this.setState({
@@ -365,6 +391,125 @@ class App extends Component {
               choice1: 'YES',
               choice2: 'NO'
             })
+          }else if(w==='WDoor'){
+            this.setState({
+              menu: 'MultipleChoice',
+              window: 'WPartMissingDoor'
+            })
+          }else if(w==='WCoverOak'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'WAnythingElse',
+              instruction: '',
+              question: 'Anything else?',
+              choice1: 'YES',
+              choice2: 'NO'
+            })
+          }else if(w==='WCoverZebrawood'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'WAnythingElse',
+              instruction: '',
+              question: 'Anything else?',
+              choice1: 'YES',
+              choice2: 'NO'
+            })
+          }else if(w==='WCoverDarkTeak'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'WAnythingElse',
+              instruction: '',
+              question: 'Anything else?',
+              choice1: 'YES',
+              choice2: 'NO'
+            })
+          }else if(w==='WCoverTeak'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'WAnythingElse',
+              instruction: '',
+              question: 'Anything else?',
+              choice1: 'YES',
+              choice2: 'NO'
+            })
+          }else if(w==='WPowerCord'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'WAnythingElse',
+              instruction: '',
+              question: 'Anything else?',
+              choice1: 'YES',
+              choice2: 'NO'
+            })
+          }else if(w==='WManuals'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'WAnythingElse',
+              instruction: '',
+              question: 'Anything else?',
+              choice1: 'YES',
+              choice2: 'NO'
+            })
+          }else if(w==='WCartridges'){
+            this.setState({
+              menu: 'Form',
+              window: 'WCartridgeAnnotation',
+              instruction: 'Which ones?'
+            })
+          }else if(w==='WDiscoveryKit'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'WAnythingElse',
+              instruction: '',
+              question: 'Anything else?',
+              choice1: 'YES',
+              choice2: 'NO'
+            })
+          }else if(w==='WStartingKit'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'WAnythingElse',
+              instruction: '',
+              question: 'Anything else?',
+              choice1: 'YES',
+              choice2: 'NO'
+            })
+          }else if(w==='WWoodenBottle'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'WAnythingElse',
+              instruction: '',
+              question: 'Anything else?',
+              choice1: 'YES',
+              choice2: 'NO'
+            })
+          }else if(w==='WBottleHolder6'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'WAnythingElse',
+              instruction: '',
+              question: 'Anything else?',
+              choice1: 'YES',
+              choice2: 'NO'
+            })
+          }else if(w==='WBottleHolder3'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'WAnythingElse',
+              instruction: '',
+              question: 'Anything else?',
+              choice1: 'YES',
+              choice2: 'NO'
+            })
+          }else if(w==='WScentCreator'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'WAnythingElse',
+              instruction: '',
+              question: 'Anything else?',
+              choice1: 'YES',
+              choice2: 'NO'
+            })
           }else if(w==='ErrorCodeRed'){
             this.setState({
               menu: 'QuestionForm',
@@ -387,8 +532,11 @@ class App extends Component {
             this.setState({
               menu: 'Form',
               window: 'AnnotationNext',
-              instruction: 'Bottle sensor is very sensitive to high direct light, and can make the lights state change, there is no problem with it, machine keeps working fine. If you want to solve the blink, change machine orientation to a non-direct light exposition'
+              instruction: 'Bottle sensor is very sensitive to high direct light, and can make the lights state change, there is no problem with it, machine keeps working fine. If you want to solve the blink, change machine orientation to a non-direct light exposition',
+              choice1: '',
+              choice2: ''
             })
+            this.setState({ })
           }else if(w==='NotBlend'){
             this.setState({
               menu: 'QuestionForm',
@@ -456,37 +604,42 @@ class App extends Component {
             this.addLog('Assign case to', 'Albert')
             this.setState({
               menu: 'AssignTo',
-              name: 'Albert'
+              name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
             })
           }else if(w==='NotIndicateFinish'){
             this.addLog('Assign case to', 'Albert')
             this.setState({
               menu: 'AssignTo',
-              name: 'Albert'
+              name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
             })
+          }else if(w==='PartMissing'){
+            this.setState({
+              window: 'PartMissing'
+            })
+          }else if(w==='NotReceived'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'NotReceived',
+              instruction: '',
+              question: 'How many working days have passed since the purchase order?',
+              choice1: 'Less than 5',
+              choice2: 'More than 5'
+            })
+          }else if(w==='BrokenPart'){
+            this.setState({
+              window: 'BrokenPart'
+            })
+          break;
+          }else if(w==='WrongDelivery'){
+            this.setState({
+              window: 'WrongDelivery'
+            })
+          break;
           }
-        break;
         
         //-------------------------- QUESTION FORM --------------------------
         case 'QuestionForm':
           switch (this.state.window){
-            case 'ErrorCode':
-              if(w==='RED'){
-                this.setState({
-                  window: 'ErrorCodeRed',
-                  question: 'Can you open the door?',
-                  choice1: 'YES',
-                  choice2: 'NO'
-                })
-              }else{
-                this.setState({
-                  window: 'ErrorCodePurple',
-                  question: 'Can you open the door?',
-                  choice1: 'YES',
-                  choice2: 'NO'
-                })
-              }
-              break;
             
             case 'ErrorCodeRed':
               if(w==='YES'){
@@ -535,13 +688,15 @@ class App extends Component {
             case 'AndroidIOS':
               if(w==='Android'){
                 this.setState({
-                  menu: 'MultipleChoice',
-                  window: 'AppChoice'
+                  menu: 'Form',
+                  window: 'VersionAnnotation',
+                  instruction: 'Make sure you have the latest app version'
                 })
               }else{
                 this.setState({
-                  menu: 'MultipleChoice',
-                  window: 'AppChoice'
+                  menu: 'Form',
+                  window: 'VersionAnnotation',
+                  instruction: 'Make sure you have the latest app version'
                 })
               }
               break;
@@ -637,6 +792,7 @@ class App extends Component {
             case 'NotWorkingLightsColour':
               if(w==='Red/Purple'){
                 this.setState({
+                  menu: 'MultipleChoice',
                   window: 'ErrorCode',
                   question: 'Colour/Code?',
                   choice1: 'RED',
@@ -1035,6 +1191,21 @@ class App extends Component {
                   })
                 }
                 break;  
+
+              case 'WAnythingElse':
+                if(w==='YES'){
+                  this.setState({
+                    menu: 'MultipleChoice',
+                    window: 'WrongDelivery'
+                  })
+                }else{
+                  this.addLog('Should have received', '');
+                  this.setState({
+                    menu: 'MultipleChoice',
+                    window: 'ShouldReceived'
+                  })
+                }
+                break; 
                 
               case 'WrongVolume':
                 if(w==='Too much'){
@@ -1184,7 +1355,7 @@ class App extends Component {
                   this.addLog('Assign case to', 'Albert')
                   this.setState({
                     menu: 'AssignTo',
-                    name: 'Albert'
+                    name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
                   })
                 }else{
                   this.setState({
@@ -1206,7 +1377,7 @@ class App extends Component {
                   this.addLog('Assign case to', 'Albert')
                   this.setState({
                     menu: 'AssignTo',
-                    name: 'Albert'
+                    name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
                   })
                 }
                 break;
@@ -1220,7 +1391,7 @@ class App extends Component {
                   this.addLog('Assign case to', 'Albert')
                   this.setState({
                     menu: 'AssignTo',
-                    name: 'Albert'
+                    name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
                   })
                 }
                 break;
@@ -1234,7 +1405,7 @@ class App extends Component {
                   this.addLog('Assign case to', 'Albert')
                   this.setState({
                     menu: 'AssignTo',
-                    name: 'Albert'
+                    name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
                   })
                 }
                 break;
@@ -1277,7 +1448,7 @@ class App extends Component {
                   this.addLog('Assign case to', 'Albert')
                   this.setState({
                     menu: 'AssignTo',
-                    name: 'Albert'
+                    name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
                   })
                 }else{
                   this.setState({
@@ -1287,6 +1458,22 @@ class App extends Component {
                     question: 'Problem solved?',
                     choice1: 'YES',
                     choice2: 'NO'
+                  })
+                }
+                break;
+
+              case 'NotReceived':
+                if(w==='Less than 5'){
+                  this.setState({
+                    menu: 'Form',
+                    window: 'AnnotationNext',
+                    instruction: 'Our shipments take a maximum of 5 working days to arrive, please keep waiting'
+                  })
+                }else{
+                  this.addLog('Assign case to', 'Raquel')
+                  this.setState({
+                    menu: 'AssignTo',
+                    name: 'Raquel'
                   })
                 }
                 break;
