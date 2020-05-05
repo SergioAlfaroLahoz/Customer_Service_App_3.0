@@ -24,17 +24,17 @@ export default class Form extends Component {
         switch(this.props.window){
             case 'Login':
                 return(
-                    <Login changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                    <Login changeWindow={this.props.changeWindow} addLog={this.props.addInformation}/>
                 )
-                    
+    
             case 'SerialNumber':
                 return(
-                    <SerialNumber changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                    <SerialNumber changeWindow={this.props.changeWindow} addLog={this.props.addInformation}/>
                 )
     
             case 'UserInformation':
                 return(
-                    <UserInformation changeWindow={this.props.changeWindow} addLog={this.props.addLog}/>
+                    <UserInformation changeWindow={this.props.changeWindow} addLog={this.props.addInformation}/>
                 )
             
             case 'Annotation':

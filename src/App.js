@@ -24,7 +24,8 @@ class App extends Component {
     this.state = {
       menu: 'Form', //Form //KindOfProblem
       window: 'Login', //Login
-      data: {Date: date},
+      information: {Date: date},
+      data: {},
       instruction: '',
       question: 'Question 1',
       choice1: 'YES',
@@ -35,6 +36,11 @@ class App extends Component {
       register: [],
       flag: false
     };
+  }
+
+  addInformation = (title, description) => {
+    this.state.information[title]=description;
+    this.setState({});
   }
 
   addLog = (title, description) => {
@@ -60,6 +66,8 @@ class App extends Component {
     });
   }
 
+  //Back function, goes back one window
+  /*
   back = () => {
     var l = this.state.register.length
     this.setState({
@@ -72,15 +80,32 @@ class App extends Component {
       choice3: this.state.choice3,
       name: this.state.register[l-1].name
     })
-    if(this.state.register[l-1].window==='Login'){
-      this.state.flag = false
+    if(this.state.register[l-1].menu==='KindOfProblem'){
+      this.state.flag = false;
     }
     this.state.register.pop();
     this.setState({})
   }
+  */
+
+  //Back function 2, goes back to KindOfProblem and resets log
+  back = () => {
+    this.setState({
+      menu: 'KindOfProblem',
+      window: '',
+      instruction: '',
+      question: '',
+      choice1: '',
+      choice2: '',
+      choice3: '',
+      name: '',
+      flag: false,
+      data: {}
+    })
+  }
 
   changeWindow = (w) => {
-    if(this.state.window==='Login'){
+    if(this.state.menu==='KindOfProblem'){
       this.state.flag = true;
     }
     this.addRegister();
@@ -1543,16 +1568,15 @@ class App extends Component {
         if(this.state.flag===false){
           return(
             <div className="app-holder">
-              <Form window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog} instruction={this.state.instruction}/>
+              <Form window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog} addInformation={this.addInformation} instruction={this.state.instruction}/>
               <Img window={this.state.window}/>
             </div>
-            
           )
         }else{
           return(
             <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
               <div className="app-holder">
-                <Form window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog} instruction={this.state.instruction}/>
+                <Form window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog} addInformation={this.addInformation} instruction={this.state.instruction}/>
                 <Img window={this.state.window}/>
               </div>
               <Back back={this.back}/>
@@ -1565,9 +1589,7 @@ class App extends Component {
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <div className="app-holder">
                 <KindOfProblem window={this.state.window} changeWindow={this.changeWindow} addLog={this.addLog}/>
-                <Back back={this.back}/>
             </div>
-            <Back back={this.back}/>
           </div>
         )
       
@@ -1607,7 +1629,7 @@ class App extends Component {
         return(
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <div className="app-holder">
-              <AssignTo data={this.state.data} addLog={this.addLog} name={this.state.name}/>
+              <AssignTo data={this.state.data} information={this.state.information} addLog={this.addLog} name={this.state.name}/>
               <Img window={this.state.menu}/>
           </div>
           <Back back={this.back}/>
@@ -1618,7 +1640,7 @@ class App extends Component {
         return(
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <div className="app-holder">
-              <ProblemSolved data={this.state.data} addLog={this.addLog}/>
+              <ProblemSolved data={this.state.data} information={this.state.information} addLog={this.addLog}/>
               <Img window={this.state.menu}/>
           </div>
           <Back back={this.back}/>
@@ -1629,7 +1651,7 @@ class App extends Component {
         return(
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <div className="app-holder">
-            <ProblemNotSolved window='ProblemNotSolved' data={this.state.data} addLog={this.addLog}/>
+            <ProblemNotSolved window='ProblemNotSolved' data={this.state.data} information={this.state.information} addLog={this.addLog}/>
             <Img window='ProblemNotSolved'/>
           </div>
           <Back back={this.back}/>
@@ -1640,7 +1662,7 @@ class App extends Component {
         return(
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <div className="app-holder">
-            <OtherQ data={this.state.data} addLog={this.addLog}/>
+            <OtherQ data={this.state.data} information={this.state.information} addLog={this.addLog}/>
             <Img window='ProblemNotSolved'/>
           </div>
           <Back back={this.back}/>

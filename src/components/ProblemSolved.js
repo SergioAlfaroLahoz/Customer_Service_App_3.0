@@ -25,7 +25,7 @@ export default class ProblemSolved extends Component {
                         <label>Thanks for use Customer Service App</label>
                         <br/><br/>
                         <TextArea addLog={this.props.addLog} title="Additional Comments"/>
-                        <PdfGenerate log={this.props.data}/>
+                        <PdfGenerate log={this.props.data} info={this.props.information}/>
                     </form>
                 </div>
             </div>

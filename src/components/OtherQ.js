@@ -33,7 +33,7 @@ export default class OtherQ extends Component {
                         <br/><br/>
                         <label>Thanks for use Customer Service App</label>
                         <br/><br/>
-                        <PdfGenerate log={this.props.data}/>
+                        <PdfGenerate log={this.props.data} info={this.props.information}/>
                     </form>
                 </div>
             </div>

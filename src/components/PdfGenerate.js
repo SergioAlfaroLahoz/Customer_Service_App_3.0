@@ -13,9 +13,24 @@ export default class PdfGenerate extends Component {
 
         // Example From https://parall.ax/products/jspdf
         var doc = new jsPDF('p', 'pt');
-
         var line = 40;
+        var SN = 'XXXXXXXX';
+        var date = new Date();
 
+        //Information
+        for (var key in this.props.info){
+            var title = key;
+            var description = this.props.info[key];
+            var text = key + ": " + description
+            var splitText = doc.splitTextToSize(text, 520);
+            doc.text(30,line,splitText);
+            line = line + (20*splitText.length);
+            if(title==='Machine Serial Number'){
+                SN = description;
+            }
+        }
+
+        //Data
         for (var key in this.props.log){
             var title = key;
             var description = this.props.log[key];
@@ -46,7 +61,36 @@ export default class PdfGenerate extends Component {
         */
         
         // Save the Data
-        doc.save('Generated.pdf')
+
+        var month = date.getMonth() + 1;
+        if(month<10){
+            month = '0' + month.toString();
+        }else{
+            month = month.toString();
+        }
+        var day = date.getDate();
+        if(day<10){
+            day = '0' + day.toString();
+        }else{
+            day = day.toString();
+        }
+        var hours = date.getHours();
+        if(hours<10){
+            hours = '0' + hours.toString();
+        }else{
+            hours = hours.toString();
+        }
+        var minutes = date.getMinutes();
+        if(minutes<10){
+            minutes = '0' + minutes.toString();
+        }else{
+            minutes = minutes.toString()
+        }
+
+        var docName = date.getFullYear().toString() + month + day + '_' + hours + minutes + '_' + SN + '.pdf'
+        console.log(SN);
+
+        doc.save(docName);
     }
   
     render(){

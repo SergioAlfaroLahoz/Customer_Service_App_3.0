@@ -30,7 +30,7 @@ export default class ProblemNotSolved extends Component {
                         <TextArea addLog={this.props.addLog} title="Additional Comments"/>
                         <label>Send incidence report to support@thealchemistatelier.com</label>
                         <br/><br/>
-                        <PdfGenerate log={this.props.data}/>
+                        <PdfGenerate log={this.props.data} info={this.props.information}/>
                     </form>
                 </div>
             </div>           
