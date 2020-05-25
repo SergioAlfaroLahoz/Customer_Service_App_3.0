@@ -1,0 +1,9 @@
+.version {
+  position: fixed;
+  right: 2.5%;
+  bottom: 2.5%;
+  width: auto;
+  font-size: 20px;
+  z-index: 1000;
+}
+/*# sourceMappingURL=version.css.map */

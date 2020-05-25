@@ -1,9 +1,9 @@
 .btn-back {
   position: fixed;
+  bottom: 5%;
+  left: 2.5%;
   background: #303f9f;
   z-index: 1000;
-  margin-left: -700px;
-  margin-top: 605px;
   width: 60px;
   height: 60px;
   display: -ms-grid;

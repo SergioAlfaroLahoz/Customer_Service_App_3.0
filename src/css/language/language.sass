@@ -1,0 +1,33 @@
+@import ../_variables
+
+.language-holder
+    width: 70%
+    margin: auto
+    margin-top: 12% 
+    background: #fff
+    box-shadow: 0px 0px 3px grey
+    padding: 50px 20px
+    display: grid
+    grid-gap: 6px
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 1fr
+    justify-items: center
+    align-items: center
+
+    input[type="button"]
+        background: $primary
+        border-radius: 1px
+        border: $border solid $white
+        color: $white
+        cursor: pointer
+        padding: 15px
+        height: 160px
+        white-space: normal //Multiple lines
+        width: 450px       
+        font-family: $font-family
+        font-size: 32px
+        -webkit-transition: all .3s ease
+        -o-transition: all .3s ease
+        transition: all .3s ease
+        &:hover
+            background: $primary-selected
