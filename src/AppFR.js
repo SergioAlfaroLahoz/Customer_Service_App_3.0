@@ -550,7 +550,7 @@ class AppFR extends Component {
               menu: 'QuestionForm',
               instruction: '',
               window: 'ErrorCodePurple',
-              question: 'Can you open the door?',
+              question: "Pouvez-vous ouvrir la porte ?",
               choice1: "OUI",
               choice2: "NON"
             })
@@ -630,13 +630,13 @@ class AppFR extends Component {
             this.addLog('Assign case to', 'Albert')
             this.setState({
               menu: 'AssignTo',
-              name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
+              name: "Albert, Demandez s'il est possible d'envoyer une courte vidéo avec le problème à support@thealchemistatelier.com"
             })
           }else if(w==='NotIndicateFinish'){
             this.addLog('Assign case to', 'Albert')
             this.setState({
               menu: 'AssignTo',
-              name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
+              name: "Albert, Demandez s'il est possible d'envoyer une courte vidéo avec le problème à support@thealchemistatelier.com"
             })
           }else if(w==='PartMissing'){
             this.setState({
@@ -1376,7 +1376,7 @@ class AppFR extends Component {
                   this.addLog('Assign case to', 'Albert')
                   this.setState({
                     menu: 'AssignTo',
-                    name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
+                    name: "Albert, Demandez s'il est possible d'envoyer une courte vidéo avec le problème à support@thealchemistatelier.com"
                   })
                 }else{
                   this.setState({
@@ -1398,7 +1398,7 @@ class AppFR extends Component {
                   this.addLog('Assign case to', 'Albert')
                   this.setState({
                     menu: 'AssignTo',
-                    name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
+                    name: "Albert, Demandez s'il est possible d'envoyer une courte vidéo avec le problème à support@thealchemistatelier.com"
                   })
                 }
                 break;
@@ -1412,7 +1412,7 @@ class AppFR extends Component {
                   this.addLog('Assign case to', 'Albert')
                   this.setState({
                     menu: 'AssignTo',
-                    name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
+                    name: "Albert, Demandez s'il est possible d'envoyer une courte vidéo avec le problème à support@thealchemistatelier.com"
                   })
                 }
                 break;
@@ -1426,7 +1426,7 @@ class AppFR extends Component {
                   this.addLog('Assign case to', 'Albert')
                   this.setState({
                     menu: 'AssignTo',
-                    name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
+                    name: "Albert, Demandez s'il est possible d'envoyer une courte vidéo avec le problème à support@thealchemistatelier.com"
                   })
                 }
                 break;
@@ -1469,7 +1469,7 @@ class AppFR extends Component {
                   this.addLog('Assign case to', 'Albert')
                   this.setState({
                     menu: 'AssignTo',
-                    name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
+                    name: "Albert, Demandez s'il est possible d'envoyer une courte vidéo avec le problème à support@thealchemistatelier.com"
                   })
                 }else{
                   this.setState({

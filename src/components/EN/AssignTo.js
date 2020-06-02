@@ -22,6 +22,8 @@ export default class AssignTo extends Component {
                     <form action="" className="form" name="form_register" method="get">
                         <label>End of query</label>
                         <br/><br/>
+                        <label>Inform: the reported problem has been sent to the technical team and we will contact you very soon with the proposed solution. The SC will be substituted if cannot be fixed remotely.</label>
+                        <br/><br/>
                         <label>Assign case to {this.props.name}</label>
                         <br/><br/>
                         <label>Send incidence report to support@thealchemistatelier.com</label>

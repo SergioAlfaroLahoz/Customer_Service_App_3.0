@@ -22,6 +22,8 @@ export default class AssignTo extends Component {
                     <form action="" className="form" name="form_register" method="get">
                         <label>Fin de la requête</label>
                         <br/><br/>
+                        <label>Informer : le problème rapporté a été envoyé à l'équipe technique et nous reviendrons très rapidement vers vous avec une solution. Dans le cas où le Scent Creator ne pourrait être réparé, nous le remplacerons.</label>
+                        <br/><br/>
                         <label>Assigner le cas à {this.props.name}</label>
                         <br/><br/>
                         <label>Envoyer le rapport à support@thealchemistatelier.com</label>

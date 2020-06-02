@@ -22,7 +22,7 @@ export default class ProblemNotSolved extends Component {
             <div className="form-holder">
                 <div className="wrap">
                     <form action="" className="form" name="form_register" method="get">
-                        <label>Dire au client que nous échangerons l'appareil contre un nouveau</label>
+                        <label>Informer : le problème rapporté a été envoyé à l'équipe technique et nous reviendrons très rapidement vers vous avec une solution. Dans le cas où le Scent Creator ne pourrait être réparé, nous le remplacerons.</label>
                         <br/><br/><br/>
                         <TextLabel text={"Adresse du client"} addLog={this.props.addLog}/>
                         <TextLabel text={"Numéro de téléphone du client"} addLog={this.props.addLog}/>
