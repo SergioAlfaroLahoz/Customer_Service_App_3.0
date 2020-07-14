@@ -668,44 +668,32 @@ class AppFR extends Component {
           switch (this.state.window){
 
             case 'ErrorCodeRed':
-              for (var key in this.state.information){
-                if(this.state.information[key]==='02' || this.state.information[key]==='2'){
-                  if(w==='OUI'){
-                    this.setState({
-                      window: 'ErrorCodeRedYes02',
-                      instruction: "Fermez la porte avec le carrousel aligné (voir image) pour débloquer le blocage.",
-                      question: "Le problème est-il résolu ?",
-                      choice1: "OUI",
-                      choice2: "NON"
-                    })
-                  }else{
-                    this.setState({
-                      window: 'ErrorCodeRedNo',
-                      instruction: "Veuillez éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
-                      question: "Le problème est-il résolu ?",
-                      choice1: "OUI",
-                      choice2: "NON"
-                    })
-                  }
+              if(w==='OUI'){
+                if(this.state.information['Scent Creator KI']==='02' || this.state.information['Scent Creator KI']==='2'){
+                  this.setState({
+                    window: 'ErrorCodeRedYes02',
+                    instruction: "Fermez la porte avec le carrousel aligné (voir image) pour débloquer le blocage.",
+                    question: "Le problème est-il résolu ?",
+                    choice1: "OUI",
+                    choice2: "NON"
+                  })
                 }else{
-                  if(w==='OUI'){
-                    this.setState({
-                      window: 'ErrorCodeRedYes',
-                      instruction: "Veuillez suivre les instructions afin de débloquer l'alimentation. Veuillez ensuite éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
-                      question: "Le problème est-il résolu ?",
-                      choice1: "OUI",
-                      choice2: "NON"
-                    })
-                  }else{
-                    this.setState({
-                      window: 'ErrorCodeRedNo',
-                      instruction: "Veuillez éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
-                      question: "Le problème est-il résolu ?",
-                      choice1: "OUI",
-                      choice2: "NON"
-                    })
-                  }
+                  this.setState({
+                    window: 'ErrorCodeRedYes',
+                    instruction: "Veuillez suivre les instructions afin de débloquer l'alimentation. Veuillez ensuite éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
+                    question: "Le problème est-il résolu ?",
+                    choice1: "OUI",
+                    choice2: "NON"
+                  })
                 }
+              }else{
+                this.setState({
+                  window: 'ErrorCodeRedNo',
+                  instruction: "Veuillez éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
+                  question: "Le problème est-il résolu ?",
+                  choice1: "OUI",
+                  choice2: "NON"
+                })
               }
               break;
 
@@ -763,24 +751,22 @@ class AppFR extends Component {
             
             case 'ErrorCodeRedNo':
               if(w==='OUI'){
-                for (var key in this.state.information){
-                  if(this.state.information[key]==='02' || this.state.information[key]==='2'){
-                    this.setState({
-                      window: 'ErrorCodeRedYes02',
-                      instruction: "Fermez la porte avec le carrousel aligné (voir image) pour débloquer le blocage.",
-                      question: "Le problème est-il résolu ?",
-                      choice1: "OUI",
-                      choice2: "NON"
-                    })
-                  }else{
-                    this.setState({
-                      window: 'ErrorCodeRedYes',
-                      instruction: "Veuillez suivre les instructions afin de débloquer l'alimentation. Veuillez ensuite éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
-                      question: "Le problème est-il résolu ?",
-                      choice1: "OUI",
-                      choice2: "NON"
-                    })
-                  }
+                if(this.state.information['Scent Creator KI']==='02' || this.state.information['Scent Creator KI']==='2'){
+                  this.setState({
+                    window: 'ErrorCodeRedYes02',
+                    instruction: "Fermez la porte avec le carrousel aligné (voir image) pour débloquer le blocage.",
+                    question: "Le problème est-il résolu ?",
+                    choice1: "OUI",
+                    choice2: "NON"
+                  })
+                }else{
+                  this.setState({
+                    window: 'ErrorCodeRedYes',
+                    instruction: "Veuillez suivre les instructions afin de débloquer l'alimentation. Veuillez ensuite éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
+                    question: "Le problème est-il résolu ?",
+                    choice1: "OUI",
+                    choice2: "NON"
+                  })
                 }
               }else{
                 this.setState({

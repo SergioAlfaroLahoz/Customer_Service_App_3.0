@@ -255,6 +255,15 @@ class AppEN extends Component {
               choice2: 'Capsule',
               choice3: 'Base of device'
             })
+          }else if(w==='NotCapsuleRecognition'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'CapsuleApp',
+              instruction: 'Please, use the app cartridge reader function',
+              question: 'App reads cartridge?',
+              choice1: 'YES',
+              choice2: 'NO'
+            })
           }
           break;
         
@@ -666,46 +675,34 @@ class AppEN extends Component {
         //-------------------------- QUESTION FORM --------------------------
         case 'QuestionForm':
           switch (this.state.window){
-            
+    
             case 'ErrorCodeRed':
-              for (var key in this.state.information){
-                if(this.state.information[key]==='02' || this.state.information[key]==='2'){
-                  if(w==='YES'){
-                    this.setState({
-                      window: 'ErrorCodeRedYes02',
-                      instruction: 'Close the door with the carousel aligned (see image) to unblock feeder jam.',
-                      question: 'Has the problem been solved?',
-                      choice1: 'YES',
-                      choice2: 'NO'
-                    })
-                  }else{
-                    this.setState({
-                      window: 'ErrorCodeRedNo',
-                      instruction: 'Switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
-                      question: 'Has the problem been solved?',
-                      choice1: 'YES',
-                      choice2: 'NO'
-                    })
-                  }
+              if(w==='YES'){
+                if(this.state.information['Machine KI']==='02' || this.state.information['Machine KI']==='2'){
+                  this.setState({
+                    window: 'ErrorCodeRedYes02',
+                    instruction: 'Close the door with the carousel aligned (see image) to unblock feeder jam.',
+                    question: 'Has the problem been solved?',
+                    choice1: 'YES',
+                    choice2: 'NO'
+                  })
                 }else{
-                  if(w==='YES'){
-                    this.setState({
-                      window: 'ErrorCodeRedYes',
-                      instruction: 'Follow the instructions to unblock feeder jam. Then switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
-                      question: 'Has the problem been solved?',
-                      choice1: 'YES',
-                      choice2: 'NO'
-                    })
-                  }else{
-                    this.setState({
-                      window: 'ErrorCodeRedNo',
-                      instruction: 'Switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
-                      question: 'Has the problem been solved?',
-                      choice1: 'YES',
-                      choice2: 'NO'
-                    })
-                  }
+                  this.setState({
+                    window: 'ErrorCodeRedYes',
+                    instruction: 'Follow the instructions to unblock feeder jam. Then switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
+                    question: 'Has the problem been solved?',
+                    choice1: 'YES',
+                    choice2: 'NO'
+                  })
                 }
+              }else{
+                this.setState({
+                  window: 'ErrorCodeRedNo',
+                  instruction: 'Switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
+                  question: 'Has the problem been solved?',
+                  choice1: 'YES',
+                  choice2: 'NO'
+                })
               }
               break;
 
@@ -763,24 +760,22 @@ class AppEN extends Component {
             
             case 'ErrorCodeRedNo':
               if(w==='YES'){
-                for (var key in this.state.information){
-                  if(this.state.information[key]==='02' || this.state.information[key]==='2'){
-                    this.setState({
-                      window: 'ErrorCodeRedYes02',
-                      instruction: 'Close the door with the carousel aligned (see image) to unblock feeder jam.',
-                      question: 'Has the problem been solved?',
-                      choice1: 'YES',
-                      choice2: 'NO'
-                    })
-                  }else{
-                    this.setState({
-                      window: 'ErrorCodeRedYes',
-                      instruction: 'Follow the instructions to unblock feeder jam. Then switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
-                      question: 'Has the problem been solved?',
-                      choice1: 'YES',
-                      choice2: 'NO'
-                    })
-                  }
+                if(this.state.information['Machine KI']==='02' || this.state.information['Machine KI']==='2'){
+                  this.setState({
+                    window: 'ErrorCodeRedYes02',
+                    instruction: 'Close the door with the carousel aligned (see image) to unblock feeder jam.',
+                    question: 'Has the problem been solved?',
+                    choice1: 'YES',
+                    choice2: 'NO'
+                  })
+                }else{
+                  this.setState({
+                    window: 'ErrorCodeRedYes',
+                    instruction: 'Follow the instructions to unblock feeder jam. Then switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
+                    question: 'Has the problem been solved?',
+                    choice1: 'YES',
+                    choice2: 'NO'
+                  })
                 }
               }else{
                 this.setState({
