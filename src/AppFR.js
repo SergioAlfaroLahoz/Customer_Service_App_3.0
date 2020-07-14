@@ -255,6 +255,15 @@ class AppFR extends Component {
               choice2: "Cartouches",
               choice3: "Base de l'appareil"
             })
+          }else if(w==='NotCapsuleRecognition'){
+            this.setState({
+              menu: 'QuestionForm',
+              window: 'CapsuleApp',
+              instruction: "Veullez utiliser la fonction de lecture de cartouches de l'application",
+              question: "L'application lit les cartouches ?",
+              choice1: "OUI",
+              choice2: "NON"
+            })
           }
           break;
         

@@ -7,7 +7,7 @@ export default class Version extends Component {
     constructor(args){
         super(args);
         this.state = {
-            version: "v1.03"
+            version: "v1.05"
         }
     }
 

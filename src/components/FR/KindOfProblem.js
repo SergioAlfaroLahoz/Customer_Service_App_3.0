@@ -41,6 +41,8 @@ export default class KindOfProblem extends Component {
                     
                         <ImageButton name='Staints' image={images.Staints} label="Fuite / tâche / goutte" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
 
+                        <ImageButton name='NotCapsuleRecognition' image={images.NotCapsuleRecognition} label="Ne reconnait pas la capsule" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
+
                         <ImageButton name='Other' image={images.Other} label="Autre" changeWindow={this.props.changeWindow} addLog={this.props.addLog} title="Kind of problem"/>
 
                     </div>
