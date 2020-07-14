@@ -55,6 +55,7 @@ import NotReceived from '../../../img/NotReceived.png';
 import BrokenPart from '../../../img/BrokenPart.png';
 import WrongDelivery from '../../../img/WrongDelivery.png';
 import AppVersion from '../../../img/AppVersion.png';
+import Unblock02 from '../../../img/Unblock02.png';
 
 const images = {
     Login: TheAlchemist,
@@ -117,7 +118,8 @@ const images = {
     NotReceived: NotReceived,
     BrokenPart: BrokenPart,
     WrongDelivery: WrongDelivery,
-    VersionAnnotation: AppVersion
+    VersionAnnotation: AppVersion,
+    ErrorCodeRedYes02: Unblock02
 };
 
 export default images;

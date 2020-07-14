@@ -575,9 +575,9 @@ class AppEN extends Component {
           }else if(w==='NotPair'){
             this.setState({
               menu: 'QuestionForm',
-              window: 'HowToPair',
-              instruction: 'Please, follow the starting guide instructions to pair the App with the Scent Creator. Be sure to have bluetooth and location permissions activated. Remember to pair always from the pairing menu of the app and not from the mobile settings. Also make sure the scent creator is on and with lights fixed in blue (without blinking)',
-              question: 'Pairing problem solved after instructions?',
+              window: 'PairUpdated',
+              instruction: '',
+              question: 'Did you updated the app recently?',
               choice1: 'YES',
               choice2: 'NO'
             })
@@ -668,22 +668,44 @@ class AppEN extends Component {
           switch (this.state.window){
             
             case 'ErrorCodeRed':
-              if(w==='YES'){
-                this.setState({
-                  window: 'ErrorCodeRedYes',
-                  instruction: 'Follow the instructions to unblock feeder jam. Then switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
-                  question: 'Has the problem been solved?',
-                  choice1: 'YES',
-                  choice2: 'NO'
-                })
-              }else{
-                this.setState({
-                  window: 'ErrorCodeRedNo',
-                  instruction: 'Switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
-                  question: 'Has the problem been solved?',
-                  choice1: 'YES',
-                  choice2: 'NO'
-                })
+              for (var key in this.state.information){
+                if(this.state.information[key]==='02' || this.state.information[key]==='2'){
+                  if(w==='YES'){
+                    this.setState({
+                      window: 'ErrorCodeRedYes02',
+                      instruction: 'Close the door with the carousel aligned (see image) to unblock feeder jam.',
+                      question: 'Has the problem been solved?',
+                      choice1: 'YES',
+                      choice2: 'NO'
+                    })
+                  }else{
+                    this.setState({
+                      window: 'ErrorCodeRedNo',
+                      instruction: 'Switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
+                      question: 'Has the problem been solved?',
+                      choice1: 'YES',
+                      choice2: 'NO'
+                    })
+                  }
+                }else{
+                  if(w==='YES'){
+                    this.setState({
+                      window: 'ErrorCodeRedYes',
+                      instruction: 'Follow the instructions to unblock feeder jam. Then switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
+                      question: 'Has the problem been solved?',
+                      choice1: 'YES',
+                      choice2: 'NO'
+                    })
+                  }else{
+                    this.setState({
+                      window: 'ErrorCodeRedNo',
+                      instruction: 'Switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
+                      question: 'Has the problem been solved?',
+                      choice1: 'YES',
+                      choice2: 'NO'
+                    })
+                  }
+                }
               }
               break;
 
@@ -700,16 +722,28 @@ class AppEN extends Component {
               break;
             
             case 'ErrorCodeRedYes':
-                if(w==='YES'){
-                  this.setState({
-                    menu: 'ProblemSolved',
-                  })
-                }else{
-                  this.setState({
-                    menu: 'ProblemNotSolved'
-                  })
-                }
-                break;
+              if(w==='YES'){
+                this.setState({
+                  menu: 'ProblemSolved',
+                })
+              }else{
+                this.setState({
+                  menu: 'ProblemNotSolved'
+                })
+              }
+              break;
+
+            case 'ErrorCodeRedYes02':
+              if(w==='YES'){
+                this.setState({
+                  menu: 'ProblemSolved',
+                })
+              }else{
+                this.setState({
+                  menu: 'ProblemNotSolved'
+                })
+              }
+              break;
 
             case 'AndroidIOS':
               if(w==='Android'){
@@ -729,13 +763,25 @@ class AppEN extends Component {
             
             case 'ErrorCodeRedNo':
               if(w==='YES'){
-                this.setState({
-                  window: 'ErrorCodeRedYes',
-                  instruction: 'Follow the instructions to unblock feeder jam. Then switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
-                  question: 'Has the problem been solved?',
-                  choice1: 'YES',
-                  choice2: 'NO'
-                })
+                for (var key in this.state.information){
+                  if(this.state.information[key]==='02' || this.state.information[key]==='2'){
+                    this.setState({
+                      window: 'ErrorCodeRedYes02',
+                      instruction: 'Close the door with the carousel aligned (see image) to unblock feeder jam.',
+                      question: 'Has the problem been solved?',
+                      choice1: 'YES',
+                      choice2: 'NO'
+                    })
+                  }else{
+                    this.setState({
+                      window: 'ErrorCodeRedYes',
+                      instruction: 'Follow the instructions to unblock feeder jam. Then switch off device, wait for 3 seconds, switch on device and wait for 5 seconds',
+                      question: 'Has the problem been solved?',
+                      choice1: 'YES',
+                      choice2: 'NO'
+                    })
+                  }
+                }
               }else{
                 this.setState({
                   menu: 'ProblemNotSolved'
@@ -1413,6 +1459,28 @@ class AppEN extends Component {
                   this.setState({
                     menu: 'AssignTo',
                     name: 'Albert, Ask if it is possible to send a short video with the problem to support@thealchemistatelier.com'
+                  })
+                }
+                break;
+
+              case 'PairUpdated':
+                if(w==='YES'){
+                  this.setState({
+                    menu: 'QuestionForm',
+                    window: 'HowToPair',
+                    instruction: 'Sometimes, when app is updated, it is necessary to update the the app permissions and make a new pairing with the Scent Cretor. Make sure you have the bluetooth and location permissions enabled. To access to the pairing code, remember to remove the front cover and to pair from the pairing menu of the app and not from the mobile settings. Also make sure the scent creator is on and with lights fixed in blue (without blinking).',
+                    question: 'Pairing problem solved after instructions?',
+                    choice1: 'YES',
+                    choice2: 'NO'
+                  })
+                }else{
+                  this.setState({
+                    menu: 'QuestionForm',
+                    window: 'HowToPair',
+                    instruction: 'Please, follow the starting guide instructions to pair the App with the Scent Creator. Be sure to have bluetooth and location permissions activated. Remember to pair always from the pairing menu of the app and not from the mobile settings. Also make sure the scent creator is on and with lights fixed in blue (without blinking)',
+                    question: 'Pairing problem solved after instructions?',
+                    choice1: 'YES',
+                    choice2: 'NO'
                   })
                 }
                 break;

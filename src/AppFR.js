@@ -575,9 +575,9 @@ class AppFR extends Component {
           }else if(w==='NotPair'){
             this.setState({
               menu: 'QuestionForm',
-              window: 'HowToPair',
-              instruction: "Veuillez suivre les instructions du guide de démarrage afin de synchroniser l'application avec le Scent Creator. Assurez-vous d'avoir activé les permissions Bluetooth et de localisation. N'oubliez pas de toujours effectuer la synchronisation à partir du menu de synchronisation de l'application et non à partir des paramètres du téléphone portable. Assurez-vous également que le Scent Creator soit allumé et que les lumières soient bleues. (sans clignoter)",
-              question: "Problème de synchronisation résolu après instruction ?",
+              window: 'PairUpdated',
+              instruction: '',
+              question: "Avez-vous mis à jour l'application récemment ?",
               choice1: "OUI",
               choice2: "NON"
             })
@@ -666,24 +666,46 @@ class AppFR extends Component {
         //-------------------------- QUESTION FORM --------------------------
         case 'QuestionForm':
           switch (this.state.window){
-            
+
             case 'ErrorCodeRed':
-              if(w==='OUI'){
-                this.setState({
-                  window: 'ErrorCodeRedYes',
-                  instruction: "Veuillez suivre les instructions afin de débloquer l'alimentation. Veuillez ensuite éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
-                  question: "Le problème est-il résolu ?",
-                  choice1: "OUI",
-                  choice2: "NON"
-                })
-              }else{
-                this.setState({
-                  window: 'ErrorCodeRedNo',
-                  instruction: "Veuillez éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
-                  question: "Le problème est-il résolu ?",
-                  choice1: "OUI",
-                  choice2: "NON"
-                })
+              for (var key in this.state.information){
+                if(this.state.information[key]==='02' || this.state.information[key]==='2'){
+                  if(w==='OUI'){
+                    this.setState({
+                      window: 'ErrorCodeRedYes02',
+                      instruction: "Fermez la porte avec le carrousel aligné (voir image) pour débloquer le blocage.",
+                      question: "Le problème est-il résolu ?",
+                      choice1: "OUI",
+                      choice2: "NON"
+                    })
+                  }else{
+                    this.setState({
+                      window: 'ErrorCodeRedNo',
+                      instruction: "Veuillez éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
+                      question: "Le problème est-il résolu ?",
+                      choice1: "OUI",
+                      choice2: "NON"
+                    })
+                  }
+                }else{
+                  if(w==='OUI'){
+                    this.setState({
+                      window: 'ErrorCodeRedYes',
+                      instruction: "Veuillez suivre les instructions afin de débloquer l'alimentation. Veuillez ensuite éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
+                      question: "Le problème est-il résolu ?",
+                      choice1: "OUI",
+                      choice2: "NON"
+                    })
+                  }else{
+                    this.setState({
+                      window: 'ErrorCodeRedNo',
+                      instruction: "Veuillez éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
+                      question: "Le problème est-il résolu ?",
+                      choice1: "OUI",
+                      choice2: "NON"
+                    })
+                  }
+                }
               }
               break;
 
@@ -711,6 +733,18 @@ class AppFR extends Component {
                 }
                 break;
 
+                case 'ErrorCodeRedYes02':
+                  if(w==='OUI'){
+                    this.setState({
+                      menu: 'ProblemSolved',
+                    })
+                  }else{
+                    this.setState({
+                      menu: 'ProblemNotSolved'
+                    })
+                  }
+                  break;
+
             case 'AndroidIOS':
               if(w==='Android'){
                 this.setState({
@@ -729,13 +763,25 @@ class AppFR extends Component {
             
             case 'ErrorCodeRedNo':
               if(w==='OUI'){
-                this.setState({
-                  window: 'ErrorCodeRedYes',
-                  instruction: "Veuillez suivre les instructions afin de débloquer l'alimentation. Veuillez ensuite éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
-                  question: "Le problème est-il résolu ?",
-                  choice1: "OUI",
-                  choice2: "NON"
-                })
+                for (var key in this.state.information){
+                  if(this.state.information[key]==='02' || this.state.information[key]==='2'){
+                    this.setState({
+                      window: 'ErrorCodeRedYes02',
+                      instruction: "Fermez la porte avec le carrousel aligné (voir image) pour débloquer le blocage.",
+                      question: "Le problème est-il résolu ?",
+                      choice1: "OUI",
+                      choice2: "NON"
+                    })
+                  }else{
+                    this.setState({
+                      window: 'ErrorCodeRedYes',
+                      instruction: "Veuillez suivre les instructions afin de débloquer l'alimentation. Veuillez ensuite éteindre l'appareil, attendre 3 secondes, réallumer l'appareil puis attendre 5 secondes.",
+                      question: "Le problème est-il résolu ?",
+                      choice1: "OUI",
+                      choice2: "NON"
+                    })
+                  }
+                }
               }else{
                 this.setState({
                   menu: 'ProblemNotSolved'
@@ -1413,6 +1459,28 @@ class AppFR extends Component {
                   this.setState({
                     menu: 'AssignTo',
                     name: "Albert, Demandez s'il est possible d'envoyer une courte vidéo avec le problème à support@thealchemistatelier.com"
+                  })
+                }
+                break;
+
+              case 'PairUpdated':
+                if(w==='OUI'){
+                  this.setState({
+                    menu: 'QuestionForm',
+                    window: 'HowToPair',
+                    instruction: "Parfois, lorsque l'application est mise à jour, il est nécessaire de mettre à jour les permissions de l'application et de faire un nouveau couplage avec le Scent Cretor. Assurez-vous d'avoir activé les permissions Bluetooth et de localisation. N'oubliez pas de toujours effectuer la synchronisation à partir du menu de synchronisation de l'application et non à partir des paramètres du téléphone portable. N'oubliez pas de retirer le panneau frontal. Assurez-vous également que le Scent Creator soit allumé et que les lumières soient bleues. (sans clignoter)",
+                    question: "Problème de synchronisation résolu après instruction ?",
+                    choice1: 'OUI',
+                    choice2: 'NON'
+                  })
+                }else{
+                  this.setState({
+                    menu: 'QuestionForm',
+                    window: 'HowToPair',
+                    instruction: "Veuillez suivre les instructions du guide de démarrage afin de synchroniser l'application avec le Scent Creator. Assurez-vous d'avoir activé les permissions Bluetooth et de localisation. N'oubliez pas de toujours effectuer la synchronisation à partir du menu de synchronisation de l'application et non à partir des paramètres du téléphone portable. Assurez-vous également que le Scent Creator soit allumé et que les lumières soient bleues. (sans clignoter)",
+                    question: "Problème de synchronisation résolu après instruction ?",
+                    choice1: 'OUI',
+                    choice2: 'NON'
                   })
                 }
                 break;
