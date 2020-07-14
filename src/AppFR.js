@@ -1391,6 +1391,7 @@ class AppFR extends Component {
                   this.setState({
                     menu: 'QuestionForm',
                     window: 'CapsuleAppNoRecognizeAll',
+                    instruction: '',
                     question: "Lorsque vous insérez les cartouches dans le Scent Creator, il y a-t-il un bruit ?",
                     choice1: "OUI",
                     choice2: "NON"

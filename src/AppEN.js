@@ -1391,6 +1391,7 @@ class AppEN extends Component {
                   this.setState({
                     menu: 'QuestionForm',
                     window: 'CapsuleAppNoRecognizeAll',
+                    instruction: '',
                     question: 'When you insert them into the Scent Creator... Does it make any noise?',
                     choice1: 'YES',
                     choice2: 'NO'
